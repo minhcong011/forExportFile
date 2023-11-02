@@ -437,6 +437,7 @@ namespace _ThrowBattle
             if (countDownRevival <= 0)
             {
                 GameManager.Instance.GameOver();
+                PlayerController.instance.ShowResultLost();
                 RevivalUI.SetActive(false);
             }
         }

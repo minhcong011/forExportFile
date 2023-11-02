@@ -344,9 +344,13 @@ namespace _ThrowBattle
             }
 
         }
-
+        public void ShowResultLost()
+        {
+            resultMode = MatchResult.Lose;
+            Die();
+        }
         //Show popup with message depend on game mode
-        void ShowResult()
+        public void ShowResult()
         {
             if (resultMode == MatchResult.Win)
             {

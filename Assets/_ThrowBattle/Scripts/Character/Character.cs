@@ -192,9 +192,17 @@ namespace _ThrowBattle
                     {
                         if (playerIndex == 1)
                         {
-                            GameManager.Instance.GameState = GameState.PreGameOver;                          
-                            //if (GameManager.Instance.playerController.isThisPlayerShoot)
-                            //    result = MatchResult.Suicide;
+                            if (GameManager.Instance.countWatchAdsToRevival == 1)
+                            {
+                                GameManager.Instance.GameState = GameState.PreGameOver;
+                                GameManager.Instance.countWatchAdsToRevival--;
+                            }
+                            else
+                            {
+                                result = MatchResult.Lose;
+                                if (GameManager.Instance.playerController.isThisPlayerShoot)
+                                    result = MatchResult.Suicide;
+                            }
                         }
                         else
                         {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.Advertisements;
 
 namespace _ThrowBattle
 {
@@ -44,6 +45,7 @@ namespace _ThrowBattle
 
         private static bool isRestart;
 
+        public int countWatchAdsToRevival = 1;
         public GameState GameState
         {
             get
@@ -368,7 +370,7 @@ namespace _ThrowBattle
             SoundManager.Instance.PlaySound(SoundManager.Instance.gameOver);
             GameState = GameState.GameOver;
             GameCount++;
-
+            countWatchAdsToRevival = 1;
             // Add other game over actions here if necessary
         }
 
