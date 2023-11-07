@@ -3,19 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - GameManager
-  - Gold
-  - DeathPlane
-  - CharacterSelectController
-  - UIManager
-  - Plane
-  - Camera
-  - Radius
-  - Blade
-  - Wood
-  - Weapon
-  - Target
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -25,8 +13,8 @@ TagManager:
   - UI
   - 
   - 
-  - Plane
-  - CharacterSelectionUI
+  - 
+  - 
   - 
   - 
   - 
@@ -52,7 +40,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: UI
-    uniqueID: 3538151521
     locked: 0

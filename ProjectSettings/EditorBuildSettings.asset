@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/_ThrowBattle/Scenes/Main.unity
-    guid: 7ced3701372d53c40a240979deb00914
+    path: Assets/Scenes/MainGame.unity
+    guid: 0ef9a27a60f9b0547bfcb131da98fe48
   m_configObjects: {}
