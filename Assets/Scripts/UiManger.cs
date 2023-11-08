@@ -77,6 +77,7 @@ public class UiManger : MonoBehaviour
 
     public void ShowInGame(int i)
     {
+        ItemDropController.Instance.lostGame = false;
         foreach (var item in Levels)
         {
             item.SetActive(false);
@@ -85,8 +86,8 @@ public class UiManger : MonoBehaviour
         Levels[i].SetActive(true);
 
         PanlOn(InGamePnl);
-
-        AdmobManager.instance.ShowInterstitialAd();
+        if (AdmobManager.instance.ShowInterstitialAd()) return;
+        ItemDropController.Instance.PlayGame = true;
     }
 
     public void ShowPause()
@@ -117,6 +118,7 @@ public class UiManger : MonoBehaviour
 
         PanlOn(LossPanl);
         ItemDropController.Instance.PlayGame = false;
+        ItemDropController.Instance.lostGame = true;
     }
 
 

@@ -151,17 +151,17 @@ public class AdmobManager : MonoBehaviour
         });
 
     }
-    public void ShowInterstitialAd()
+    public bool ShowInterstitialAd()
     {
-
         if (interstitialAd != null && interstitialAd.CanShowAd())
         {
             interstitialAd.Show();
+            return true;
         }
         else
         {
-            ItemDropController.Instance.PlayGame = true;
             print("Intersititial ad not ready!!");
+            return false;
         }
     }
     public void InterstitialEvent(InterstitialAd ad)
@@ -193,14 +193,14 @@ public class AdmobManager : MonoBehaviour
         ad.OnAdFullScreenContentClosed += () =>
         {
             LoadInterstitialAd();
-            ItemDropController.Instance.PlayGame = true;
+            if (!ItemDropController.Instance.lostGame) ItemDropController.Instance.PlayGame = true;
             Debug.Log("Interstitial ad full screen content closed.");
         };
         // Raised when the ad failed to open full screen content.
         ad.OnAdFullScreenContentFailed += (AdError error) =>
         {
             LoadInterstitialAd();
-            ItemDropController.Instance.PlayGame = true;
+            if (!ItemDropController.Instance.lostGame) ItemDropController.Instance.PlayGame = true;
             Debug.LogError("Interstitial ad failed to open full screen content " +
                            "with error : " + error);
         };

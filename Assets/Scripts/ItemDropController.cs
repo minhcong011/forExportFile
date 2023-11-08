@@ -39,6 +39,7 @@ public class ItemDropController : MonoBehaviour
 
 	Data QueuedFruit,NowFruit;
 
+	public bool lostGame;
 	private void Awake()
 	{
 		Instance = this;
@@ -116,7 +117,7 @@ public class ItemDropController : MonoBehaviour
 		{
 			OutofBound.SetActive(true);
 
-			if(DropFruit.position.y > 2.4f)
+			if(DropFruit.position.y > 2.4f && PlayGame)
 			{
 				UiManger.Intence.ShowLoss();
 			}
