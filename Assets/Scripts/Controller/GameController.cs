@@ -11,7 +11,7 @@ public class GameController : MonoBehaviour
     private void Awake()
     {
         controller = this;
-        //loading.transform.position = Vector3.zero;
+        loading.transform.position = Vector3.zero;
     }
     //========================================
 
@@ -43,7 +43,7 @@ public class GameController : MonoBehaviour
     private void Start()
     {
         soundController.PlaySound(soundEffect.start);
-        adsController.ShowInterstitialAd();
+      
     }
 
     public void PlaySound(soundEffect soundEffect)
@@ -124,7 +124,7 @@ public class GameController : MonoBehaviour
     {
         isGameover = true;
 
-        adsController.ShowInterstitialAd();
+        adsController.ShowInterAds();
 
         soundController.PlaySound(soundEffect.gameover);
         motherShip.DisablePath();
@@ -186,7 +186,7 @@ public class GameController : MonoBehaviour
 
     public void ShowRewardAd()
     {
-        adsController.ShowRewardedAd();
+        adsController.UserChoseToWatchAd();
     }
 
     public int GetSkillCount(Skill skill)

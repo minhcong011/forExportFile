@@ -14,13 +14,14 @@ public class CheckBoxAd : MonoBehaviour
         checkBoxAdContainer = GameObject.Find("CheckBoxAdContainer");
         //gameObject.transform.SetParent(checkBoxAdContainer.transform);
         arrCheckBoxAd = FindObjectsOfType<CheckBoxAd>();
+        timeToHide = adController.GetComponent<adcontroller>().timeToHideAd;
     }
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.CompareTag("PlayerHead"))
         {
             Debug.Log("Show Ad with Tag");
-            AdsController.instance.ShowInterstitialAd();
+            adController.GetComponent<adcontroller>().RequestInterstitial();
             HideAllCheckBoxAd();
             Invoke(nameof(ShowAllCheckBoxAd), timeToHide);
         }      

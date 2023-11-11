@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace GoogleMobileAds.Editor
 {
+
     internal class GoogleMobileAdsSettings : ScriptableObject
     {
         private const string MobileAdsSettingsResDir = "Assets/GoogleMobileAds/Resources";
@@ -12,25 +13,7 @@ namespace GoogleMobileAds.Editor
 
         private const string MobileAdsSettingsFileExtension = ".asset";
 
-        internal static GoogleMobileAdsSettings LoadInstance()
-        {
-            //Read from resources.
-            var instance = Resources.Load<GoogleMobileAdsSettings>(MobileAdsSettingsFile);
-
-            //Create instance if null.
-            if (instance == null)
-            {
-                Directory.CreateDirectory(MobileAdsSettingsResDir);
-                instance = ScriptableObject.CreateInstance<GoogleMobileAdsSettings>();
-                string assetPath = Path.Combine(
-                    MobileAdsSettingsResDir,
-                    MobileAdsSettingsFile + MobileAdsSettingsFileExtension);
-                AssetDatabase.CreateAsset(instance, assetPath);
-                AssetDatabase.SaveAssets();
-            }
-
-            return instance;
-        }
+        private static GoogleMobileAdsSettings instance;
 
         [SerializeField]
         private string adMobAndroidAppId = string.Empty;
@@ -39,57 +22,58 @@ namespace GoogleMobileAds.Editor
         private string adMobIOSAppId = string.Empty;
 
         [SerializeField]
-        private bool delayAppMeasurementInit;
-
-        [SerializeField]
-        private bool optimizeInitialization;
-
-        [SerializeField]
-        private bool optimizeAdLoading;
-
-        [SerializeField]
-        private string userTrackingUsageDescription;
+        private bool delayAppMeasurementInit = false;
 
         public string GoogleMobileAdsAndroidAppId
         {
-            get { return adMobAndroidAppId; }
+            get { return Instance.adMobAndroidAppId; }
 
-            set { adMobAndroidAppId = value; }
+            set { Instance.adMobAndroidAppId = value; }
         }
 
         public string GoogleMobileAdsIOSAppId
         {
-            get { return adMobIOSAppId; }
+            get { return Instance.adMobIOSAppId; }
 
-            set { adMobIOSAppId = value; }
+            set { Instance.adMobIOSAppId = value; }
         }
 
         public bool DelayAppMeasurementInit
         {
-            get { return delayAppMeasurementInit; }
+            get { return Instance.delayAppMeasurementInit; }
 
-            set { delayAppMeasurementInit = value; }
+            set { Instance.delayAppMeasurementInit = value; }
         }
 
-        public bool OptimizeInitialization
+        public static GoogleMobileAdsSettings Instance
         {
-            get { return optimizeInitialization; }
+            get
+            {
+                if (instance != null)
+                {
+                    return instance;
+                }
 
-            set { optimizeInitialization = value; }
-        }
+                instance = Resources.Load<GoogleMobileAdsSettings>(MobileAdsSettingsFile);
 
-        public bool OptimizeAdLoading
-        {
-            get { return optimizeAdLoading; }
+                if(instance != null)
+                {
+                    return instance;
+                }
 
-            set { optimizeAdLoading = value; }
-        }
+                Directory.CreateDirectory(MobileAdsSettingsResDir);
 
-        public string UserTrackingUsageDescription
-        {
-            get { return userTrackingUsageDescription; }
+                instance = ScriptableObject.CreateInstance<GoogleMobileAdsSettings>();
 
-            set { userTrackingUsageDescription = value; }
+                string assetPath = Path.Combine(MobileAdsSettingsResDir, MobileAdsSettingsFile);
+                string assetPathWithExtension = Path.ChangeExtension(
+                                                        assetPath, MobileAdsSettingsFileExtension);
+                AssetDatabase.CreateAsset(instance, assetPathWithExtension);
+
+                AssetDatabase.SaveAssets();
+
+                return instance;
+            }
         }
     }
 }

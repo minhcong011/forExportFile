@@ -3,295 +3,412 @@ using System.Collections.Generic;
 using UnityEngine;
 using GoogleMobileAds.Api;
 using System;
-
-public class AdsController : MonoBehaviour
+using UnityEngine.Advertisements;
+public class AdsController : MonoBehaviour, IUnityAdsShowListener, IUnityAdsLoadListener, IUnityAdsInitializationListener
 {
-    public static AdsController instance;
-#if UNITY_ANDROID
-    string bannerId = "ca-app-pub-2787841785988179/9426421152";
-    string interId = "ca-app-pub-2787841785988179/2184437955";
-    string rewardedId = "ca-app-pub-2787841785988179/3716527969";
+    [Header("IOS")]
+    [SerializeField] private string IosAppID;
+    [SerializeField] private string IosBanner;
+    [SerializeField] private string IosInterstitial;
+    [SerializeField] private string IosReward;
 
-#elif UNITY_IPHONE
-    string bannerId = "ca-app-pub-3940256099942544/2934735716";
-    string interId = "ca-app-pub-3940256099942544/4411468910";
-    string rewardedId = "ca-app-pub-3940256099942544/1712485313";
+    [Header("Android")]
+    [SerializeField] private string AndroidAppID;
+    [SerializeField] private string AndroidBanner;
+    [SerializeField] private string AndroidInterstitial;
+    [SerializeField] private string AndroidReward;
+    public AdPosition position;
+    public bool isTest;
 
-#endif
+    private RewardedAd rewardedAd;
+    private InterstitialAd interstitial;
+    private BannerView bannerView;
 
-    BannerView bannerView;
-    InterstitialAd interstitialAd;
-    RewardedAd rewardedAd;
+
+
+    [Header("UnityAds")]
+
+    [SerializeField] string _androidGameId;
+    [SerializeField] string _iOSGameId;
+    private string _gameId;
+
+    string _iosBannerAdUnitId = "Banner_iOS";
+    string _iosInterstitialAdUnitId = "Interstitial_iOS";
+    string _iOSRewardedAdUnitId = "Rewarded_iOS";
+
+    string _androidBannerAdUnitId = "Banner_Android";
+    string _androidInterstitialAdUnitId = "Interstitial_Android";
+    string _androidRewardedAdUnitId = "Rewarded_Android";
+
+    private string bannerPlacementId;
+    private string interstitialPlacementId;
+    private string rewardPlacementId;
+
+    [SerializeField] private BannerPosition bannerPosition = BannerPosition.BOTTOM;
+    bool isInitUnityAds = false;
+    bool isloadadStartgame = true;
+    private void InitAdmod()
+    {
+        MobileAds.Initialize(initStatus =>
+        {
+            Debug.Log("Init Status : " + initStatus);
+  
+        });
+    }
 
     private void Awake()
     {
-        instance = this;
-        MobileAds.RaiseAdEventsOnUnityMainThread = true;
-        MobileAds.Initialize(initStatus =>
-        {
+        InitAdmod();
+        CreateAndLoadAdmodRewardedAd();
 
-            print("Ads Initialised !!");
+        isInitUnityAds = false;
+        InitUntiyAds();
 
-        });
-        LoadBannerAd();
-        LoadInterstitialAd();
-        LoadRewardedAd();
     }
     private void Start()
     {
+        isloadadStartgame = true;
+        RequestAdmodBanner();
+        RequestAdmodInterstitial();
+    }
+    private void RequestAdmodBanner()
+    {
+        string adUnitId;
+        // These ad units are configured to always serve test ads.
+        #if UNITY_ANDROID
+                if (isTest)
+                    adUnitId = "ca-app-pub-3940256099942544/6300978111";
+                else
+                    adUnitId = AndroidBanner;
+        #elif UNITY_IPHONE
+                                if (isTest)
+                                    adUnitId = "ca-app-pub-3940256099942544/2934735716";
+                                else
+                                    adUnitId = IosBanner;
+        #else
+                                adUnitId = "unexpected_platform";
+        #endif
+
+        // Create a 320x50 banner at the top of the screen.
+        this.bannerView = new BannerView(adUnitId, AdSize.Banner, AdPosition.Top);
+
+        this.bannerView.OnAdFailedToLoad += this.HandleAdmodBannerFailedToLoad;
+
+        // Create an empty ad request.
+        AdRequest request = new AdRequest.Builder().Build();
+        // Load the banner with the request.
+        this.bannerView.LoadAd(request);
+    }
+
+    private void RequestAdmodInterstitial()
+    {
+        string adUnitId;
+        // These ad units are configured to always serve test ads.
+#if UNITY_ANDROID
+        if (isTest)
+            adUnitId = "ca-app-pub-3940256099942544/1033173712";
+        else
+            adUnitId = AndroidInterstitial;
+#elif UNITY_IPHONE
+                if (isTest)
+                    adUnitId = "ca-app-pub-3940256099942544/4411468910";
+                else
+                    adUnitId = IosInterstitial;
+#else
+                adUnitId = "unexpected_platform";
+#endif
+
+        // Create an interstitial.
+        this.interstitial = new InterstitialAd(adUnitId);
+
+        this.interstitial.OnAdFailedToLoad += HandleOnAdmodInterstitialAdFailedToLoad;
+        this.interstitial.OnAdClosed += HandleOnAdClosed;
+        this.interstitial.OnAdLoaded += HandleOnAdLoaded;
+
+        // Create an empty ad request.
+        AdRequest request = new AdRequest.Builder().Build();
+        // Load the interstitial with the request.
+        this.interstitial.LoadAd(request);
+
+    }
+
+    public void ShowInterAds()
+    {
+        Debug.Log("Show Inter Ads : " + this.interstitial.IsLoaded());
+        if (this.interstitial.IsLoaded())
+        {
+            this.interstitial.Show();
+        }
+    }
+
+
+    private void HandleAdmodBannerFailedToLoad(object sender, AdFailedToLoadEventArgs e)
+    {
+       LoadUnityBanner();
+    }
+    private void HandleOnAdLoaded(object sender, EventArgs e)
+    {
+        GameController.controller.EnableLoadingPanel(false);
+        if (isloadadStartgame)
+        {
+            isloadadStartgame = false;
+            ShowInterAds();
+        }
+    }
+
+    private void OnDestroy()
+    {
+        interstitial.Destroy();
+    }
+
+    private void HandleOnAdClosed(object sender, EventArgs e)
+    {
+        RequestAdmodInterstitial();
+    }
+
+
+
+    private void HandleOnAdmodInterstitialAdFailedToLoad(object sender, AdFailedToLoadEventArgs e)
+    {
+        LoadUntiyInterstitialAd();
+    }
+
+
+    public void CreateAndLoadAdmodRewardedAd()
+    {
+        string adUnitId;
+        // These ad units are configured to always serve test ads.
+#if UNITY_ANDROID
+        if (isTest)
+            adUnitId = "ca-app-pub-3940256099942544/5224354917";
+        else
+            adUnitId = AndroidReward;
+#elif UNITY_IPHONE
+                                        if (isTest)
+                                            adUnitId = "ca-app-pub-3940256099942544/1712485313";
+                                        else
+                                            adUnitId = IosReward;
+#else
+                                        adUnitId = "unexpected_platform";
+#endif
+
+
+        this.rewardedAd = new RewardedAd(adUnitId);
+
+        this.rewardedAd.OnUserEarnedReward += HandleUserEarnedReward;
+        this.rewardedAd.OnAdClosed += HandleRewardedAdClosed;
+        this.rewardedAd.OnAdFailedToLoad += HandleOnAdmodRewardAdFailToLoad;
+        // Create an empty ad request.
+        AdRequest request = new AdRequest.Builder().Build();
+        // Load the rewarded ad with the request.
+        this.rewardedAd.LoadAd(request);
+    }
+
+    private void HandleOnAdmodRewardAdFailToLoad(object sender, AdFailedToLoadEventArgs e)
+    {
+        LoadUnityRewardAd();
+    }
+
+    private void HandleRewardedAdClosed(object sender, EventArgs e)
+    {
+        rewardedAd.Destroy();
+        CreateAndLoadAdmodRewardedAd();
+    }
+    private void HandleUserEarnedReward(object sender, Reward e)
+    {
+        GameController.controller.OpenPopupReward();
+    }
+
+    public void UserChoseToWatchAd()
+    {
+        if (this.rewardedAd.IsLoaded())
+        {
+            this.rewardedAd.Show();
+        }
+        else
+        {
+            ShowUnityRewardAd();
+        }
+    }
+
+    #region Unity Ads
+    private void InitUntiyAds()
+    {
+        _gameId = (Application.platform == RuntimePlatform.IPhonePlayer)
+                     ? _iOSGameId
+                     : _androidGameId;
+        Advertisement.Initialize(_gameId, isTest, this);
+
+        bannerPlacementId = (Application.platform == RuntimePlatform.IPhonePlayer)
+            ? _iosBannerAdUnitId
+            : _androidBannerAdUnitId;
+
+        interstitialPlacementId = (Application.platform == RuntimePlatform.IPhonePlayer)
+          ? _iosInterstitialAdUnitId
+          : _androidInterstitialAdUnitId;
+
+
+#if UNITY_IOS
+                rewardPlacementId = _iOSRewardedAdUnitId;
+#elif UNITY_ANDROID
+        rewardPlacementId = _androidRewardedAdUnitId;
+        #endif
+
+        Advertisement.Banner.SetPosition(UnityEngine.Advertisements.BannerPosition.BOTTOM_CENTER);
+    }
+
+    public void OnInitializationComplete()
+    {
+        isInitUnityAds = true;
+
+    }
+
+    public void OnInitializationFailed(UnityAdsInitializationError error, string message)
+    {
+        Debug.Log("OnInitializationFailed Unity");
     }
 
     #region Banner
-
-    public void LoadBannerAd()
+    public void LoadUnityBanner()
     {
-        //create a banner
-        CreateBannerView();
+        
 
-        //listen to banner events
-        ListenToBannerEvents();
-
-        //load the banner
-        if (bannerView == null)
+        // Set up options to notify the SDK of load events:
+        BannerLoadOptions options = new BannerLoadOptions
         {
-            CreateBannerView();
-        }
+            loadCallback = OnBannerLoaded,
+            errorCallback = OnBannerError
+        };
 
-        var adRequest = new AdRequest();
-        adRequest.Keywords.Add("unity-admob-sample");
 
-        print("Loading banner Ad !!");
-        bannerView.LoadAd(adRequest);//show the banner on the screen
+        Advertisement.Banner.Load(bannerPlacementId, options);
     }
-    void CreateBannerView()
+
+    public void ShowUnityBanner()
+    {
+        // Set up options to notify the SDK of show events:
+        BannerOptions options = new BannerOptions
+        {
+            clickCallback = OnBannerClicked,
+            hideCallback = OnBannerHidden,
+            showCallback = OnBannerShown
+        };
+
+
+        Advertisement.Banner.Show(bannerPlacementId);
+    }
+    #endregion
+    #region Handles banner
+    private void OnBannerError(string message)
     {
 
-        if (bannerView != null)
-        {
-            DestroyBannerAd();
-        }
-        bannerView = new BannerView(bannerId, AdSize.Banner, AdPosition.Top);
     }
-    void ListenToBannerEvents()
+    private void OnBannerLoaded()
     {
-        bannerView.OnBannerAdLoaded += () =>
-        {
-            Debug.Log("Banner view loaded an ad with response : "
-                + bannerView.GetResponseInfo());
-        };
-        // Raised when an ad fails to load into the banner view.
-        bannerView.OnBannerAdLoadFailed += (LoadAdError error) =>
-        {
-            Debug.LogError("Banner view failed to load an ad with error : "
-                + error);
-        };
-        // Raised when the ad is estimated to have earned money.
-        bannerView.OnAdPaid += (AdValue adValue) =>
-        {
-            Debug.Log("Banner view paid {0} {1}." +
-                adValue.Value +
-                adValue.CurrencyCode);
-        };
-        // Raised when an impression is recorded for an ad.
-        bannerView.OnAdImpressionRecorded += () =>
-        {
-            Debug.Log("Banner view recorded an impression.");
-        };
-        // Raised when a click is recorded for an ad.
-        bannerView.OnAdClicked += () =>
-        {
-            Debug.Log("Banner view was clicked.");
-        };
-        // Raised when an ad opened full screen content.
-        bannerView.OnAdFullScreenContentOpened += () =>
-        {
-            Debug.Log("Banner view full screen content opened.");
-        };
-        // Raised when the ad closed full screen content.
-        bannerView.OnAdFullScreenContentClosed += () =>
-        {
-            Debug.Log("Banner view full screen content closed.");
-        };
+        Debug.Log("Unity Banner Loaded");
+        ShowUnityBanner();
     }
-    public void DestroyBannerAd()
+    private void OnBannerShown()
     {
 
-        if (bannerView != null)
-        {
-            print("Destroying banner Ad");
-            bannerView.Destroy();
-            bannerView = null;
-        }
+    }
+    private void OnBannerHidden()
+    {
+
+    }
+    private void OnBannerClicked()
+    {
+
     }
     #endregion
 
     #region Interstitial
-
-    public void LoadInterstitialAd()
+    public void LoadUntiyInterstitialAd()
     {
-
-        if (interstitialAd != null)
+        if (!isInitUnityAds)
         {
-            interstitialAd.Destroy();
-            interstitialAd = null;
+            GameController.controller.EnableLoadingPanel(false);
+            return;
         }
-        var adRequest = new AdRequest();
-        adRequest.Keywords.Add("unity-admob-sample");
 
-        InterstitialAd.Load(interId, adRequest, (InterstitialAd ad, LoadAdError error) =>
-        {
-            if (error != null || ad == null)
-            {
-                print("Interstitial ad failed to load" + error);
-                return;
-            }
-
-            print("Interstitial ad loaded !!" + ad.GetResponseInfo());
-
-            interstitialAd = ad;
-            InterstitialEvent(interstitialAd);
-        });
-
+        Debug.Log("Load unity ads ");
+        Advertisement.Load(interstitialPlacementId,this);
     }
-    public bool ShowInterstitialAd()
+
+    public void ShowUntiyInterstitialAd()
     {
-        if (interstitialAd != null && interstitialAd.CanShowAd())
-        {
-            interstitialAd.Show();
-            return true;
-        }
-        else
-        {
-            print("Intersititial ad not ready!!");
-            return false;
-        }
-    }
-    public void InterstitialEvent(InterstitialAd ad)
-    {
-        // Raised when the ad is estimated to have earned money.
-        ad.OnAdPaid += (AdValue adValue) =>
-        {
-            Debug.Log("Interstitial ad paid {0} {1}." +
-                adValue.Value +
-                adValue.CurrencyCode);
-        };
-        // Raised when an impression is recorded for an ad.
-        ad.OnAdImpressionRecorded += () =>
-        {
-            Debug.Log("Interstitial ad recorded an impression.");
-        };
-        // Raised when a click is recorded for an ad.
-        ad.OnAdClicked += () =>
-        {
-            Debug.Log("Interstitial ad was clicked.");
-        };
-        // Raised when an ad opened full screen content.
-        ad.OnAdFullScreenContentOpened += () =>
-        {
-            Debug.Log("Interstitial ad full screen content opened.");
-        };
-        // Raised when the ad closed full screen content.
-        ad.OnAdFullScreenContentClosed += () =>
-        {
-            LoadInterstitialAd();
-            Debug.Log("Interstitial ad full screen content closed.");
-        };
-        // Raised when the ad failed to open full screen content.
-        ad.OnAdFullScreenContentFailed += (AdError error) =>
-        {
-            LoadInterstitialAd();
-            Debug.LogError("Interstitial ad failed to open full screen content " +
-                           "with error : " + error);
-        };
+        Advertisement.Show(interstitialPlacementId,this);
     }
 
     #endregion
 
     #region Rewarded
-
-    public void LoadRewardedAd()
+    public void LoadUnityRewardAd()
+    {
+        Advertisement.Load(rewardPlacementId,this);
+    }
+    public void ShowUnityRewardAd()
     {
 
-        if (rewardedAd != null)
-        {
-            rewardedAd.Destroy();
-            rewardedAd = null;
-        }
-        var adRequest = new AdRequest();
-        adRequest.Keywords.Add("unity-admob-sample");
+        // Then show the ad:
+        Advertisement.Show(rewardPlacementId, this);
+    }
 
-        RewardedAd.Load(rewardedId, adRequest, (RewardedAd ad, LoadAdError error) =>
+    public void OnUnityAdsShowFailure(string placementId, UnityAdsShowError error, string message)
+    {
+       
+    }
+
+    public void OnUnityAdsShowStart(string placementId)
+    {
+       
+    }
+
+    public void OnUnityAdsShowClick(string placementId)
+    {
+        
+    }
+
+    public void OnUnityAdsShowComplete(string placementId, UnityAdsShowCompletionState showCompletionState)
+    {
+        if(rewardPlacementId == placementId)
         {
-            if (error != null || ad == null)
+            GameController.controller.OpenPopupReward();
+
+            CreateAndLoadAdmodRewardedAd();
+
+        }
+        if(interstitialPlacementId == placementId)
+        {
+            RequestAdmodInterstitial();
+        }
+    }
+
+    public void OnUnityAdsAdLoaded(string placementId)
+    {
+        if(placementId == interstitialPlacementId)
+        {
+            Debug.Log("Loaded unity ads interstitial PlacementId");
+            GameController.controller.EnableLoadingPanel(false);
+            if (isloadadStartgame)
             {
-                print("Rewarded failed to load" + error);
-                return;
+                isloadadStartgame = false;
+                ShowUntiyInterstitialAd();
             }
-
-            print("Rewarded ad loaded !!");
-            rewardedAd = ad;
-            RewardedAdEvents(rewardedAd);
-        });
-    }
-    public void ShowRewardedAd()
-    {
-
-        if (rewardedAd != null && rewardedAd.CanShowAd())
-        {
-            rewardedAd.Show((Reward reward) =>
-            {
-
-                CompletedRewardAds();
-            });
-        }
-        else
-        {
-            print("Rewarded ad not ready");
         }
     }
-    public void RewardedAdEvents(RewardedAd ad)
+
+    public void OnUnityAdsFailedToLoad(string placementId, UnityAdsLoadError error, string message)
     {
-        // Raised when the ad is estimated to have earned money.
-        ad.OnAdPaid += (AdValue adValue) =>
+        if(placementId == interstitialPlacementId)
         {
-            Debug.Log("Rewarded ad paid {0} {1}." +
-                adValue.Value +
-                adValue.CurrencyCode);
-        };
-        // Raised when an impression is recorded for an ad.
-        ad.OnAdImpressionRecorded += () =>
-        {
-            Debug.Log("Rewarded ad recorded an impression.");
-        };
-        // Raised when a click is recorded for an ad.
-        ad.OnAdClicked += () =>
-        {
-            Debug.Log("Rewarded ad was clicked.");
-        };
-        // Raised when an ad opened full screen content.
-        ad.OnAdFullScreenContentOpened += () =>
-        {
-            Time.timeScale = 0;
-            Debug.Log("Rewarded ad full screen content opened.");
-        };
-        // Raised when the ad closed full screen content.
-        ad.OnAdFullScreenContentClosed += () =>
-        {
-            LoadRewardedAd();
-            Time.timeScale = 1;
-            Debug.Log("Rewarded ad full screen content closed.");
-        };
-        // Raised when the ad failed to open full screen content.
-        ad.OnAdFullScreenContentFailed += (AdError error) =>
-        {
-            LoadRewardedAd();
-            Debug.LogError("Rewarded ad failed to open full screen content " +
-                           "with error : " + error);
-        };
+            Debug.Log("Load fail unity ads interstitial PlacementId");
+            GameController.controller.EnableLoadingPanel(false);
+        }
     }
+
 
     #endregion
-    public void CompletedRewardAds()
-    {
-    }
+    #endregion
+
 }

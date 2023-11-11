@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
+using static ReadJsonFile;
 
 public class ReadJsonFile : MonoBehaviour
 {
@@ -24,7 +25,7 @@ public class ReadJsonFile : MonoBehaviour
 
         if (request.isNetworkError || request.isHttpError)
         {
-
+            SceneManager.LoadScene("Game1");
         }
         else
         {

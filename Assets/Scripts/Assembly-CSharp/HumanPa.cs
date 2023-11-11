@@ -149,7 +149,7 @@ public class HumanPa : MonoBehaviour
 				VariblesGlobal.ShowADinter = true;
 
 					//Debug.Log(3);
-					AdsController.instance.ShowInterstitialAd();
+					adcontroller.Instance.RequestInterstitial();
 		    }
 			if (this.TimerAttackOfftime <= 1f & this.StateAD == 0 & VariblesGlobal.ADcounter == 1)
 			{

@@ -139,7 +139,7 @@ public class DogGrandpa : MonoBehaviour
 				this.StateAD = 1;
 				VariblesGlobal.ShowADinter = true;
 
-			    AdsController.instance.ShowInterstitialAd();
+			    adcontroller.Instance.RequestInterstitial();
 		    }
 			if (this.TimerAttackOfftime <= 1f & this.StateAD == 0 & VariblesGlobal.ADcounter == 1)
 			{
