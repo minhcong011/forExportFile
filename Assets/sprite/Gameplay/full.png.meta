@@ -63,7 +63,7 @@ TextureImporter:
       213: -4708782918674952568
     second: full_20
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -84,6 +84,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -122,6 +123,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -159,6 +161,30 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -178,7 +204,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 5ae90cfe34b2d36c0800000000000000
-      internalID: -4162122909835288923
+      internalID: 1484245923236645527
       vertices: []
       indices: 
       edges: []
@@ -613,6 +639,28 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      avatar: -9207558377158042287
+      enemy1: 4376025897361802390
+      enemy2: -8444236688633586484
+      frame: 5469438470169829125
+      full_12: -6998844140798697261
+      full_13: -9217655746016684187
+      full_14: 121584917099695152
+      full_15: 2247367525208175581
+      full_16: -6393328199504298630
+      full_17: -5119148031655044217
+      full_18: -4019045142740821635
+      full_19: 8475718649690945486
+      full_20: -4708782918674952568
+      full_6: 4119745316926619276
+      full_7: -5815395488616339405
+      full_8: 5222702586976359706
+      player ship: 4750639463548640416
+      ship: -2419250850326163852
+      skill gatling: 1484245923236645527
+      skill heal: 5391008403216719833
+      skill rocket: 7028379676450906074
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

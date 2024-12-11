@@ -11,7 +11,7 @@ public class GameController : MonoBehaviour
     private void Awake()
     {
         controller = this;
-        loading.transform.position = Vector3.zero;
+        //loading.transform.position = Vector3.zero;
     }
     //========================================
 
@@ -29,13 +29,13 @@ public class GameController : MonoBehaviour
     public EmoteController emoteController;
     public ExplotionController explotionController;
     public Achievement achievement;
+    public AdsController adsController;
     public SoundController soundController;
     public SkinShip skinShip;
-    public AdsController adsController;
     public ShopController shopController;
 
     public bool isGameover = false;
-
+    public bool isStartGame = false;
     public GameObject loading;
     
    
@@ -43,7 +43,7 @@ public class GameController : MonoBehaviour
     private void Start()
     {
         soundController.PlaySound(soundEffect.start);
-      
+        isStartGame = false;
     }
 
     public void PlaySound(soundEffect soundEffect)
@@ -64,8 +64,8 @@ public class GameController : MonoBehaviour
 
         enemiesController.ResetWave();
         scoreController.StartGame();
-        isGameover = false; 
-
+        isGameover = false;
+        isStartGame = true;
         motherShip.transform.DOMove(endPos.position, duration).OnComplete(()=> {
             soundController.PlaySound(soundEffect.gameplay);
 
@@ -124,7 +124,7 @@ public class GameController : MonoBehaviour
     {
         isGameover = true;
 
-        adsController.ShowInterAds();
+        AdmobAds.Instance.ShowInterstitial();
 
         soundController.PlaySound(soundEffect.gameover);
         motherShip.DisablePath();
