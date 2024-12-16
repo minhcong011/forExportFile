@@ -6,15 +6,22 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Loading.unity
-    guid: 4596f6b6b807c40409198b336ca13e67
+    path: Assets/_Scenes/LoadingGame.unity
+    guid: f40075a18cbd81c4dac39dbeaff094ff
   - enabled: 1
-    path: Assets/Scenes/start.unity
-    guid: efacc2a927518a2489ace75f4ae24799
+    path: Assets/_Scenes/MainMenu.unity
+    guid: d8d171db55f9bce4a97caa45dcba5d98
   - enabled: 1
-    path: Assets/Scenes/GameSprungki.unity
-    guid: 1ea0c686d4bfed14bb1dcf16c5c89642
-  - enabled: 1
-    path: Assets/Scenes/Game.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  m_configObjects: {}
+    path: Assets/_Scenes/GamePlay.unity
+    guid: ca9e9af6530f2bb43a5edbd3783fc241
+  m_configObjects:
+    com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000,
+      guid: 3bb9b091760935b43b5fe6078530780d, type: 2}
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 397c16722e3202746beb9375b01011c6,
+      type: 2}
+    com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000,
+      guid: ed942d87f3ac5d94abf9c1265e5df1dc, type: 2}
+    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000,
+      guid: dc668d3f115940d4c8010273dc71e761, type: 2}
+    com.unity.addressableassets: {fileID: 11400000, guid: 88c0fee3b2b693242b4de86f4ce9e066,
+      type: 2}
