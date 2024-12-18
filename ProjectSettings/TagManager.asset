@@ -3,18 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Car
-  - Car1
-  - Car2
-  - Car3
-  - CarHolder
-  - Heli
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Car
+  - 
   - Water
   - UI
   - 
@@ -46,7 +40,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: CarReward
-    uniqueID: 2946027665
     locked: 0
