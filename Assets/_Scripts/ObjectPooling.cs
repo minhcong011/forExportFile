@@ -5,9 +5,10 @@ using UnityEngine.Pool;
 
 public class ObjectPooling : SingletonBase<ObjectPooling>
 {
-    [SerializeField] private GameObject holder;
+    [SerializeField] public GameObject holder;
     [SerializeField] private GameObject uiHolder;
     private List<GameObject> objectInPool = new();
+    public List<GameObject> meetTrash = new();
     // Start is called before the first frame update
     public GameObject CreateObject(GameObject objToCreate)
     {
@@ -34,5 +35,14 @@ public class ObjectPooling : SingletonBase<ObjectPooling>
         GameObject newObj = Instantiate(objToCreate);
         objectInPool.Add(newObj);
         return newObj;
+    }
+    public void CleanHolder()
+    {
+        GameObject[] objToClean = meetTrash.ToArray();
+        for(int i = 0; i < objToClean.Length; i++)
+        {
+            Destroy(objToClean[i]);
+        }
+        meetTrash.Clear();
     }
 }

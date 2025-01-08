@@ -44,7 +44,6 @@ public class AdsManager : SingletonBaseDontDestroyOnLoad<AdsManager>
     InterstitialAd interstitialAd;
     RewardedAd rewardedAd;
 
-
     private void Start()
     {
         if (GameCache.GC.blockAds) return;
@@ -63,6 +62,10 @@ public class AdsManager : SingletonBaseDontDestroyOnLoad<AdsManager>
         if(countTap >= 50)
         {
             countTap = 0;
+            if (GameCache.GC.currentWeaponType == WeaponType.Knife)
+            {
+                CombatManager.Instance.CreateMeetCutMesh();
+            }
             ShowInterstitialAd();
         }
     }

@@ -11,6 +11,12 @@ public class CombatManager : SingletonBase<CombatManager>
     [SerializeField] private int knifeDamage;
     [SerializeField] private int fireDamage;
     [SerializeField] private int boomDamage;
+
+    [SerializeField] private GameObject currentMeet;
+
+    [SerializeField] private GameObject meetCutMeshPref;
+    [SerializeField] private GameObject meetNomalPref;
+    [SerializeField] private GameObject meetDrawBrush;
     private void Start()
     {
         StartCoroutine(ReduceHp());
@@ -23,7 +29,7 @@ public class CombatManager : SingletonBase<CombatManager>
         GameCache.GC.currentHp -= damage;
         UIManager.Instance.UpdateHPSlider();
         UIManager.Instance.UpdateXpSlider();
-        MeetAnimationController.Instance.PlayHit();
+        if (GameCache.GC.currentWeaponType != WeaponType.Knife) MeetAnimationController.Instance.PlayHit();
         CheckLevelUP();
         Debug.Log("Damage: " + damage);
     }
@@ -48,7 +54,7 @@ public class CombatManager : SingletonBase<CombatManager>
         if(GameCache.GC.currentHp <= 0)
         {
             TapController.Instance.IsBlockTap = true;
-            MeetAnimationController.Instance.PlayDeath();
+            if (GameCache.GC.currentWeaponType != WeaponType.Knife) MeetAnimationController.Instance.PlayDeath();
             StartCoroutine(CheckFinishReduceHpWhenDeath());
         }
     }
@@ -89,5 +95,23 @@ public class CombatManager : SingletonBase<CombatManager>
                 return boomDamage;
         }
         return 0;
+    }
+    public void CreateMeetCutMesh()
+    {
+        Destroy(currentMeet);
+        ObjectPooling.Instance.CleanHolder();
+        currentMeet = Instantiate(meetCutMeshPref);
+    }
+    public void CreateMeetNomal()
+    {
+        Destroy(currentMeet);
+        ObjectPooling.Instance.CleanHolder();
+        currentMeet = Instantiate(meetNomalPref);
+    }
+    public void CreateMeetDrawBrush()
+    {
+        Destroy(currentMeet);
+        ObjectPooling.Instance.CleanHolder();
+        currentMeet = Instantiate(meetDrawBrush);
     }
 }

@@ -32,6 +32,27 @@ public class ChoseWeaponButton : MonoBehaviour
         {
             sellectBG.SetActive(true);
             GameCache.GC.currentWeaponType = weaponType;
+            switch (weaponType)
+            {
+                case WeaponType.Hammer: 
+                case WeaponType.Hand:
+                    {
+                        CombatManager.Instance.CreateMeetNomal();
+                        break;
+                    }
+                case WeaponType.Knife:
+                    {
+                        CombatManager.Instance.CreateMeetCutMesh();
+                        break;
+                    }
+                case WeaponType.Fire:
+                case WeaponType.Boom:
+                    {
+                        CombatManager.Instance.CreateMeetDrawBrush();
+                        break;
+                    }
+
+            }
         }
     }
     public void DeSellect()

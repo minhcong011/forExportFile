@@ -36,4 +36,8 @@ public class AnimatorController : MonoBehaviour
     {
         //AudioManager.Instance.PlaySound(soundName);
     }
+    public void DisableParent()
+    {
+        gameObject.transform.parent.gameObject.SetActive(false);
+    }
 }
