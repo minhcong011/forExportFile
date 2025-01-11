@@ -4,7 +4,7 @@ public class Jellyfier : MonoBehaviour
 {
 	//A value that describes how fast our jelly object will be bouncing
     public float bounceSpeed = 200;
-    public float fallForce = 50;
+    public float fallForce = 100;
 
     //We need this value to eventually stop bouncing back and forth.
     public float stiffness = 5;
@@ -55,7 +55,7 @@ public class Jellyfier : MonoBehaviour
         UpdateVertices();    
     }
     public void TapPressure(Vector3 tapPos) {
-        ApplyPressureToPoint(tapPos, 300);
+        ApplyPressureToPoint(tapPos, tapPresureForce);
     }
 
 	private void UpdateVertices()
