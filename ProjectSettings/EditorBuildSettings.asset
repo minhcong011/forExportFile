@@ -4,7 +4,12 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
-  m_configObjects:
-    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000,
-      guid: 6a62ee23319e98d4798ebab112408cbe, type: 2}
+  m_Scenes:
+  - enabled: 1
+    path: Assets/MyAssets/Scene/LoadingGame.unity
+    guid: 448abf083d9807544b750b97431a326c
+  - enabled: 1
+    path: Assets/MyAssets/Scene/Game.unity
+    guid: 403f648e458a2034bbc9d0aeaa7df976
+  m_configObjects: {}
+  m_UseUCBPForAssetBundles: 0

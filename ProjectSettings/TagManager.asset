@@ -2,10 +2,10 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
+  serializedVersion: 3
   tags:
-  - Steak
-  - Meet
+  - FxTemporaire
+  - ChallengeHardTab
   layers:
   - Default
   - TransparentFX
@@ -17,7 +17,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Movable
   - 
   - 
   - 
@@ -43,3 +43,8 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Collect
+    uniqueID: 2900637019
+    locked: 0
+  m_RenderingLayers:
+  - Default
