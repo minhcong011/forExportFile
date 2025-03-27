@@ -35,7 +35,7 @@ public class MouseDrag : MonoBehaviour
                 case TouchPhase.Moved:
                     if (currentDraggingObject == this)
                     {
-                        Vibration.Vibrate(10);
+                        if(!GameCache.GC.vibrateOff) Vibration.Vibrate(10);
                         Vector2 touchEnd = touch.position;
                         Vector2 delta = touchEnd - touchStart;
                         if (delta.magnitude < dragThreshold) return;

@@ -20,6 +20,7 @@ public class AudioManager : MonoBehaviour
 
     public void Play(string name)
     {
+        if (GameCache.GC.soundOff) return;
         AudioClip clip = Array.Find(audioClips, sound => sound.name == name);
 
         if (clip == null)

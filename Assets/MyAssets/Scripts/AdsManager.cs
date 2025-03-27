@@ -1,5 +1,6 @@
 using UnityEngine;
 using GoogleMobileAds.Api;
+using System.Collections;
 
 public enum RewardAdsType
 {
@@ -10,6 +11,7 @@ public class AdsManager : MonoBehaviour
     private string intertestialId = "ca-app-pub-3940256099942544/1033173712";
     private string bannerId = "ca-app-pub-3940256099942544/6300978111";
     private string rewardId = "ca-app-pub-3940256099942544/5224354917";
+    private string openAppId = "";
 
     private InterstitialAd interstitialAd;
     private BannerView bannerView;
@@ -24,6 +26,13 @@ public class AdsManager : MonoBehaviour
 
     RewardAdsType rewardAdsType;
 
+    AppOpenAd appOpenAd;
+    public bool finishLoadOpenAppAds;
+    public bool loadOpenAppAdsError;
+
+    private bool canShowInter = true;
+    private bool canShowReward;
+
     private void Awake()
     {
         if (Instance != null)
@@ -33,7 +42,10 @@ public class AdsManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
     }
-
+    private void OnApplicationPause(bool pause)
+    {
+        ShowAppOpenAd();
+    }
     public void Start()
     {
         if (!enableAds)
@@ -46,7 +58,103 @@ public class AdsManager : MonoBehaviour
         RequestInterstitial();
 
         LoadRewardedAd();
+
+        LoadAppOpenAd();
     }
+    private IEnumerator CountDownInter()
+    {
+        float countDown = 20;
+        while(countDown > 0)
+        {
+            countDown -= Time.deltaTime;
+            yield return null;
+        }
+        canShowInter = true;
+    }
+    #region OpenApp
+    public void LoadAppOpenAd()
+    {
+        if (GameCache.GC.blockAds) return;
+        // Clean up the old ad before loading a new one.
+        if (appOpenAd != null)
+        {
+            appOpenAd.Destroy();
+            appOpenAd = null;
+        }
+
+
+        // Create our request used to load the ad.
+        var adRequest = new AdRequest();
+
+        AppOpenAd.Load(openAppId, adRequest, (AppOpenAd ad, LoadAdError error) =>
+        {
+            if (error != null)
+            {
+                loadOpenAppAdsError = true;
+                Debug.LogError("App open ad failed to load an ad with error : "
+                                + error);
+                return;
+            }
+            if (ad == null)
+            {
+                loadOpenAppAdsError = true;
+                Debug.LogError("Unexpected error: App open ad load event fired with " +
+                               " null ad and null error.");
+                return;
+            }
+            RegisterEventHandlers(ad);
+            appOpenAd = ad;
+            finishLoadOpenAppAds = true;
+        });
+    }
+
+    private void RegisterEventHandlers(AppOpenAd ad)
+    {
+        // Raised when the ad is estimated to have earned money.
+        ad.OnAdPaid += (AdValue adValue) =>
+        {
+        };
+        // Raised when an impression is recorded for an ad.
+        ad.OnAdImpressionRecorded += () =>
+        {
+        };
+        // Raised when a click is recorded for an ad.
+        ad.OnAdClicked += () =>
+        {
+        };
+        // Raised when an ad opened full screen content.
+        ad.OnAdFullScreenContentOpened += () =>
+        {
+        };
+        // Raised when the ad closed full screen content.
+        ad.OnAdFullScreenContentClosed += () =>
+        {
+            LoadAppOpenAd();
+        };
+        // Raised when the ad failed to open full screen content.
+        ad.OnAdFullScreenContentFailed += (AdError error) =>
+        {
+            LoadAppOpenAd();
+            Debug.LogError("App open ad failed to open full screen content " +
+                           "with error : " + error);
+        };
+    }
+    IEnumerator ShowAppOpenAdWithDelay()
+    {
+        yield return new WaitForSeconds(0.2f);
+        ShowAppOpenAd();
+    }
+
+    public IEnumerator ShowAppOpenAd()
+    {
+        if (appOpenAd != null && appOpenAd.CanShowAd())
+        {
+            appOpenAd.Show();
+            yield return new WaitForSeconds(0.5f);
+        }
+        yield return null;
+    }
+    #endregion
 
     public void LoadBannerAd()
     {
@@ -116,11 +224,13 @@ public class AdsManager : MonoBehaviour
     {
         if (!enableAds)
             return;
-
+        if (!canShowInter) return;
         if (interstitialAd != null && interstitialAd.CanShowAd())
         {
             Debug.Log("Showing interstitial ad.");
             interstitialAd.Show();
+            canShowInter = false;
+            StartCoroutine(CountDownInter());
         }
         else
         {

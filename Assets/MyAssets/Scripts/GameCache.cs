@@ -26,7 +26,7 @@ public class GameCache
     private static void Test()
     {
         Debug.Log("test");
-        PlayerPrefs.SetInt("Level", 3);
+        PlayerPrefs.SetInt("Level", 97);
         SaveDataToJson();
     }
 #endif

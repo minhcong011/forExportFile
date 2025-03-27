@@ -48,6 +48,7 @@ public class GameManager : SingletonBase<GameManager>
     }
     private void Start()
     {
+        StartCoroutine(AdsManager.Instance.ShowAppOpenAd());
         FindFirstObjectByType<LevelLoader>().LoadLevel(levelNo);
     }
 
@@ -93,6 +94,7 @@ public class GameManager : SingletonBase<GameManager>
     private void InvokeRetryGame()
     {
         AudioManager.Instance.Play("Retry");
+        AdsManager.Instance.ShowInterstitialAd();
         retryPanel.SetActive(true);
     }
 

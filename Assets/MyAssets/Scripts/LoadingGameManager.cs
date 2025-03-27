@@ -25,6 +25,7 @@ public class LoadingGameManager : MonoBehaviour
             loadingSlider.value += Time.deltaTime * 0.2f;
             yield return null;
         }
+        while (!AdsManager.Instance.finishLoadOpenAppAds && !AdsManager.Instance.loadOpenAppAdsError) yield return null;
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
         while (!operation.isDone)
         {

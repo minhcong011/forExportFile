@@ -343,9 +343,11 @@ MonoBehaviour:
   backRaySensor: {fileID: 846870747705568709}
   canDrag: 1
   isLocked: 0
+  isKey: 0
   color: {r: 0, g: 0, b: 0, a: 0}
   spriteRender: {fileID: 338245553739431049}
   suggestBorder: {fileID: 166157141555384587}
+  test: 0
 --- !u!65 &6163424794189097592
 BoxCollider:
   m_ObjectHideFlags: 0

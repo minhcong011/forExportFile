@@ -96,7 +96,7 @@ public class Cutter : MonoBehaviour
                 key.GotoLock();
             }
 
-            Vibration.Vibrate(50);
+            if(!GameCache.GC.vibrateOff) Vibration.Vibrate(50);
 
             AudioManager.Instance.Play("Cut");
             cuttingParticle.Play();

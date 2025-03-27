@@ -56,16 +56,24 @@ public class LevelLoader : SingletonBase<LevelLoader>
     public CameraFollow cameraFollow;
     public GameManager gameManager;
 
-
+    int[] randomNumbers = {
+    3, 7, 12, 19, 25, 31, 37, 42, 49, 55, 60, 66, 72, 79, 85,
+    92, 98, 105, 112, 118, 125, 130, 137, 142, 149, 155, 161,
+    169, 175, 182, 188, 193, 200, 207, 213, 220, 227, 233, 240,
+    5, 11, 17, 23, 29, 35, 41, 47, 53, 59, 65, 71, 77, 83, 89,
+    95, 101, 109, 115, 121, 129, 135, 141, 147, 153, 159, 167,
+    173, 181, 187, 195, 203, 211, 219
+};
     private List<MovableItem> movableItems = new();
     private int upY = 0;
+
+    private LevelData levelData;
     public void LoadLevel(int levelNo)
     {
-        float randToCreateLock = Random.value;
-        bool levelHaveLock = false;
+
 
         TextAsset jsonFile = Resources.Load<TextAsset>("Levels/Level" + levelNo); // No need for .json extension
-        LevelData levelData = JsonUtility.FromJson<LevelData>(jsonFile.text);
+        levelData = JsonUtility.FromJson<LevelData>(jsonFile.text);
 
         GameManager.Instance.SetLevelTime(levelData.MovableInfo.Count);
         if (levelData.MoveLimit != 0)
@@ -78,38 +86,6 @@ public class LevelLoader : SingletonBase<LevelLoader>
             Transform tra = Instantiate(cellPrefab, position, Quaternion.identity).transform;
 
             cameraFollow.AddTarget(tra);
-        }
-        foreach(var moveable in levelData.MovableInfo)
-        {
-            if (moveable.LockId != 0)
-            {
-                levelHaveLock = true;
-            }
-        }
-        int amountLock = 1;
-        int amountKey = amountLock * 3;
-        if (!levelHaveLock && randToCreateLock <= 0.3f && levelData.MovableInfo.Count > 10)
-        {
-            while (amountKey > 0)
-            {
-                int rand = 0;
-
-                do rand = Random.Range(0, levelData.MovableInfo.Count);
-                while (levelData.MovableInfo[rand].KeyId != 0 || levelData.MovableInfo[rand].LockId != 0);
-
-                levelData.MovableInfo[rand].KeyId = 1;
-                amountKey--;
-            }
-            while (amountLock > 0)
-            {
-                int rand;
-
-                do rand = Random.Range(0, levelData.MovableInfo.Count);
-                while (levelData.MovableInfo[rand].KeyId != 0 || levelData.MovableInfo[rand].LockId != 0 || levelData.MovableInfo[rand].Length == 1);
-
-                levelData.MovableInfo[rand].LockId = 1;
-                amountLock--;
-            }
         }
         // Spawn and position MovableInfo objects
         foreach (var movable in levelData.MovableInfo)
@@ -138,12 +114,11 @@ public class LevelLoader : SingletonBase<LevelLoader>
             GameObject obj = Instantiate(prefabToSpawn, position, rotation);
 
             if (movable.KeyId != 0)
-                obj.GetComponentInChildren<Key>(true).gameObject.SetActive(true);
+                obj.GetComponent<MovableItem>().SetKey(true);
 
             if (movable.LockId != 0)
             {
-                obj.GetComponentInChildren<LockItem>(true).gameObject.SetActive(true);
-                obj.GetComponent<MovableItem>().isLocked = true;
+                obj.GetComponent<MovableItem>().SetLock(true);
             }
             movableItems.Add(obj.GetComponent<MovableItem>());
             AssignColor(obj, movable.Colors, movable.Direction[0]);
@@ -171,9 +146,78 @@ public class LevelLoader : SingletonBase<LevelLoader>
                 AssignColor(obj, exit.Colors[i], exit.Direction);
             }
         }
+        Invoke(nameof(AddLock), 0.3f);
     }
+    private void AddLock()
+    {
+        bool needCreateLock = true;
+        bool levelHaveLock = false;
+        int amountKey = 0;
+        int countRand1 = 10;
 
-    void AssignColor(GameObject obj, int colorCode,int directionID)
+        foreach (var moveable in levelData.MovableInfo)
+        {
+            if (moveable.LockId != 0)
+            {
+                levelHaveLock = true;
+            }
+        }
+
+        //foreach (int number in randomNumbers)
+        //{
+        //    if (number == gameManager.levelNo)
+        //    {
+        //        needCreateLock = true;
+        //        break;
+        //    }
+        //}
+        List<MovableInfo> tmp = new(levelData.MovableInfo);
+        if (!levelHaveLock && needCreateLock && levelData.MovableInfo.Count > 20)
+        {
+            Debug.Log("addLock");
+            while (tmp.Count > 0)
+            {
+                int randLock = 0;
+                randLock = Random.Range(0, tmp.Count);
+                if (tmp[randLock].Length != 1)
+                {
+                    int indexRand = levelData.MovableInfo.IndexOf(tmp[randLock]);
+
+                    List<MovableItem> modifiedItems = new();
+
+                    movableItems[indexRand].SetLock(true);
+                    modifiedItems.Add(movableItems[indexRand]);
+
+                    foreach (MovableItem move in movableItems)
+                    {
+                        if (!move.isLocked)
+                        {
+                            List<GameObject> tmp2 = new();
+                            if (move.CheckNonBlockByLock(tmp2))
+                            {
+                                move.SetKey(true);
+                                modifiedItems.Add(move);
+                                amountKey++;
+                                if (amountKey == 3) return;
+                            }
+                        }
+                    }
+
+                    if (amountKey < 3)
+                    {
+                        foreach (MovableItem move in modifiedItems)
+                        {
+                            move.SetLock(false);
+                            move.SetKey(false);
+                        }
+                        amountKey = 0;
+                    }
+                }
+                tmp.RemoveAt(randLock);
+            }
+        }
+    }
+    void AssignColor(GameObject obj, int colorCode, int directionID)
     {
         Color color = colorCode switch
         {
@@ -188,11 +232,31 @@ public class LevelLoader : SingletonBase<LevelLoader>
         ColorManager renderer = obj.GetComponent<ColorManager>();
         renderer.SetColor(color, colorCode, directionID);
     }
+    public void RemoveAllKey()
+    {
+        foreach (MovableItem moveable in movableItems)
+        {
+            Key key = moveable.GetComponentInChildren<Key>();
+            if (key)
+            {
+                key.gameObject.SetActive(false);
+            }
+        }
+    }
     public void ShowFindBooster()
     {
-        foreach(MovableItem movableItem in movableItems)
+        foreach (MovableItem movableItem in movableItems)
         {
-            if (movableItem != null && movableItem.CanMoveAnyDirection())
+            if (movableItem != null && movableItem.GetNearCutter() && !movableItem.isLocked)
+            {
+                Debug.Log("a");
+                movableItem.suggestBorder.SetActive(true);
+                return;
+            }
+        }
+        foreach (MovableItem movableItem in movableItems)
+        {
+            if (movableItem != null && movableItem.GetCanMoveAnyDirection() && !movableItem.isLocked)
             {
                 movableItem.suggestBorder.SetActive(true);
                 return;
@@ -206,3 +270,4 @@ public class LevelLoader : SingletonBase<LevelLoader>
         else return 3;
     }
 }
+

@@ -62,6 +62,19 @@ public class BoosterManager : SingletonBase<BoosterManager>
         if (colorToSet == Color.blue) colorToSet = new Color(0.1921569f, 0.8588236f, 0.937255f, 1);
         newBreakEf.startColor = colorToSet;
 
+        Key key = moveableToBreak.GetComponentInChildren<Key>();
+
+        if (key)
+        {
+            key.transform.parent = null;
+            key.GotoLock();
+        }
+
+        if (moveableToBreak.GetComponent<MovableItem>().isLocked)
+        {
+            LevelLoader.Instance.RemoveAllKey();
+        }
+
         Destroy(moveableToBreak);
         GameManager.Instance.CheckWin();
     }

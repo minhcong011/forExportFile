@@ -456,6 +456,7 @@ MonoBehaviour:
   color: {r: 0, g: 0, b: 0, a: 0}
   spriteRender: {fileID: 539402432272789589}
   suggestBorder: {fileID: 1734279497954973835}
+  test: 0
 --- !u!65 &8297802196908075675
 BoxCollider:
   m_ObjectHideFlags: 0
