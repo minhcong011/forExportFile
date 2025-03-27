@@ -68,6 +68,8 @@ public class LevelLoader : SingletonBase<LevelLoader>
     private int upY = 0;
 
     private LevelData levelData;
+
+    private MovableItem oldMoveSuggest;
     public void LoadLevel(int levelNo)
     {
 
@@ -245,23 +247,36 @@ public class LevelLoader : SingletonBase<LevelLoader>
     }
     public void ShowFindBooster()
     {
+        List<MovableItem> suggestObjs = new();
         foreach (MovableItem movableItem in movableItems)
         {
-            if (movableItem != null && movableItem.GetNearCutter() && !movableItem.isLocked)
+            if (movableItem != null && movableItem.GetNearCutter() && !movableItem.isLocked && !movableItem.suggestBorder.activeSelf)
             {
-                Debug.Log("a");
-                movableItem.suggestBorder.SetActive(true);
-                return;
+                suggestObjs.Add(movableItem);
             }
         }
-        foreach (MovableItem movableItem in movableItems)
+        if (suggestObjs.Count == 0)
         {
-            if (movableItem != null && movableItem.GetCanMoveAnyDirection() && !movableItem.isLocked)
+            foreach (MovableItem movableItem in movableItems)
             {
-                movableItem.suggestBorder.SetActive(true);
-                return;
+                if (movableItem != null && movableItem.GetCanMoveAnyDirection() && !movableItem.isLocked && !movableItem.suggestBorder.activeSelf)
+                {
+                    suggestObjs.Add(movableItem);
+                }
             }
         }
+        int countRand = 0;
+        int rand = 0;
+        do
+        {
+            countRand++;
+            rand = Random.Range(0, suggestObjs.Count);
+        }
+        while ((oldMoveSuggest && suggestObjs[rand] == oldMoveSuggest) && countRand < suggestObjs.Count);
+
+        oldMoveSuggest = suggestObjs[rand];
+
+        suggestObjs[rand].suggestBorder.SetActive(true);
     }
     private int GetAmountLock(int amountMoveable)
     {

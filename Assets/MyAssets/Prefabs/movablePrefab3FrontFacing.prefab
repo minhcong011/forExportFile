@@ -366,9 +366,11 @@ MonoBehaviour:
   backRaySensor: {fileID: 3604321486758570780}
   canDrag: 1
   isLocked: 0
+  isKey: 0
   color: {r: 0, g: 0, b: 0, a: 0}
   spriteRender: {fileID: 4097981179289416887}
   suggestBorder: {fileID: 8701047816800875867}
+  test: 0
 --- !u!65 &7803978456195951777
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -604,7 +606,7 @@ Transform:
   m_GameObject: {fileID: 9124521043323215896}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 1.03, y: 0.2, z: 0}
+  m_LocalPosition: {x: 1.03, y: 0.01, z: 0}
   m_LocalScale: {x: 0.31, y: 0.31, z: 0.31}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -673,9 +675,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3007683257046993998}
     m_Modifications:
+    - target: {fileID: 764387245385912515, guid: b36567c2d7368484893ad3cf4ee37425, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 2587577878020590610, guid: b36567c2d7368484893ad3cf4ee37425, type: 3}
       propertyPath: m_Name
       value: Key
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587577878020590610, guid: b36567c2d7368484893ad3cf4ee37425, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2863480118307942440, guid: b36567c2d7368484893ad3cf4ee37425, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 3496683467806561499, guid: b36567c2d7368484893ad3cf4ee37425, type: 3}
       propertyPath: m_LocalPosition.x
@@ -716,6 +730,10 @@ PrefabInstance:
     - target: {fileID: 3496683467806561499, guid: b36567c2d7368484893ad3cf4ee37425, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8062164867409191615, guid: b36567c2d7368484893ad3cf4ee37425, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.05
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -943,6 +961,10 @@ PrefabInstance:
     - target: {fileID: 5989954604912859516, guid: 53b4dbd07ac2d7e48a6e93b71f4be9a6, type: 3}
       propertyPath: m_Name
       value: Lock
+      objectReference: {fileID: 0}
+    - target: {fileID: 5989954604912859516, guid: 53b4dbd07ac2d7e48a6e93b71f4be9a6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
