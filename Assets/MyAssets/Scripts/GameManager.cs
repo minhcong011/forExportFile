@@ -162,6 +162,10 @@ public class GameManager : SingletonBase<GameManager>
     {
         AdsManager.Instance.ShowRewardedAd(RewardAdsType.AddCoin);
     }
+    public void ShowRewardVideoX2Coin()
+    {
+        AdsManager.Instance.ShowRewardedAd(RewardAdsType.X2Coin);
+    }
 
     public void SkipLevel()
     {

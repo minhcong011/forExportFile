@@ -46,7 +46,7 @@ public class CoinsAnimation : MonoBehaviour
 
         //Invoke(nameof(PlayCoinSound), 1);
         //InvokeRepeating(nameof(GiveCoins), .1f, .1f);
-        coinsManager.AddCoins(300);
+        coinsManager.AddCoins(50);
     }
 
 

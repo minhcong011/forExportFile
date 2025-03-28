@@ -311,7 +311,7 @@ public class AdsManager : MonoBehaviour
                 }
             case RewardAdsType.X2Coin:
                 {
-                    CoinsManager.Instance.AddCoins(600);
+                    CoinsManager.Instance.AddCoins(50);
                     GameManager.Instance.Next();
                     break;
                 }
