@@ -26,7 +26,7 @@ public class GameCache
     private static void Test()
     {
         Debug.Log("test");
-        //PlayerPrefs.SetInt("Level", 97);
+        PlayerPrefs.SetInt("Level", 10);
         PlayerPrefs.SetInt("CoinsAmount", 10000);
         SaveDataToJson();
     }
