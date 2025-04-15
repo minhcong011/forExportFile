@@ -1,0 +1,129 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 331c9db87fccab440b0ba9bfb76487b3, type: 3}
+  m_Name: gunData
+  m_EditorClassIdentifier: 
+  machineGuns:
+  - gunName: RPK74
+    gunPref: {fileID: 1342180569026765, guid: 05dddb0a2f1d13347b7720a97c7348e9, type: 3}
+    gunIcon: {fileID: 21300000, guid: be3ad2e9b6ef7004e8e17e75e1ceac2f, type: 2}
+    unlockWithAds: 0
+  - gunName: MG5 A2
+    gunPref: {fileID: 1284282089930620, guid: 297bf9be8f4035c4c879c78ccb1cc3d0, type: 3}
+    gunIcon: {fileID: 21300000, guid: 548bfe6f05a3e31498859c444d0feb8e, type: 2}
+    unlockWithAds: 1
+  - gunName: BREN
+    gunPref: {fileID: 1508138821610360, guid: 0f2a192d38262244d8425e4b1f0a5308, type: 3}
+    gunIcon: {fileID: 21300000, guid: c52ad0239ba48c54a97360630e45882a, type: 2}
+    unlockWithAds: 0
+  - gunName: HOTCHKISSM1922
+    gunPref: {fileID: 1909920284516941, guid: e955456628f255b4c866f0ea793dd2dd, type: 3}
+    gunIcon: {fileID: 21300000, guid: 24affe1c34155ae4ebf825ea1b9a0948, type: 2}
+    unlockWithAds: 0
+  - gunName: RPD
+    gunPref: {fileID: 1435048986107519, guid: 045f8b6fac36357479f1919fda0f2681, type: 3}
+    gunIcon: {fileID: 21300000, guid: be3ad2e9b6ef7004e8e17e75e1ceac2f, type: 2}
+    unlockWithAds: 1
+  - gunName: FNMAG
+    gunPref: {fileID: 1233716666608780, guid: 92777c7bdc9081b409ae90ffa7541611, type: 3}
+    gunIcon: {fileID: 21300000, guid: 4defdfdd99c072241914153a97d12e5a, type: 2}
+    unlockWithAds: 1
+  - gunName: FN FAL
+    gunPref: {fileID: 1690121575726836, guid: 4cf90b5da60a43a489bbf34921360431, type: 3}
+    gunIcon: {fileID: 21300000, guid: 24affe1c34155ae4ebf825ea1b9a0948, type: 2}
+    unlockWithAds: 0
+  - gunName: M240 V
+    gunPref: {fileID: 1553346797823668, guid: 6ac92b2fdd209d246a363c01690655c1, type: 3}
+    gunIcon: {fileID: 21300000, guid: 677ad4945727de54d90b6207f78de026, type: 2}
+    unlockWithAds: 0
+  - gunName: MK60 V
+    gunPref: {fileID: 1434822228376427, guid: df31e3abd234fa64e9f941c12c451b4d, type: 3}
+    gunIcon: {fileID: 21300000, guid: ebfde9e306271714aa87811ba4fda7b2, type: 2}
+    unlockWithAds: 1
+  - gunName: PKR
+    gunPref: {fileID: 1633368471327834, guid: 3494ea867514c634ca1438bc9a391fc3, type: 3}
+    gunIcon: {fileID: 21300000, guid: 82843af45d915da40811f66ad8ba1e5c, type: 2}
+    unlockWithAds: 0
+  stunGuns:
+  - gunName: 
+    gunPref: {fileID: 1007637358092328, guid: f6f59fa1fc5204447810c0d6768764ab, type: 3}
+    gunIcon: {fileID: 21300000, guid: 507fa585efa0e8f4cb67a0641eca1f48, type: 2}
+    unlockWithAds: 0
+  - gunName: 
+    gunPref: {fileID: 1631692804679795, guid: cec790f2140967048a73542c6e858f0c, type: 3}
+    gunIcon: {fileID: 21300000, guid: 2655a57bb5c150a488444a58c77ddb42, type: 2}
+    unlockWithAds: 0
+  - gunName: 
+    gunPref: {fileID: 1470886579154086, guid: 955421561c1286f4c91a65e8e3da55fc, type: 3}
+    gunIcon: {fileID: 21300000, guid: ce44d8531aa203b41a5be63962e92f40, type: 2}
+    unlockWithAds: 0
+  - gunName: 
+    gunPref: {fileID: 1780410491505298, guid: e00fa51bf4e06514e965cd2ed0c27c03, type: 3}
+    gunIcon: {fileID: 21300000, guid: 785045cce7959814a8849c91469e864a, type: 2}
+    unlockWithAds: 0
+  - gunName: 
+    gunPref: {fileID: 1825922160923749, guid: 8c0446dd98bfb2f44bb992aa21f7c982, type: 3}
+    gunIcon: {fileID: 21300000, guid: 367a021490385f04386c1d04111cf2fe, type: 2}
+    unlockWithAds: 0
+  - gunName: 
+    gunPref: {fileID: 1269769943961815, guid: 73131771d3473d04594269210b95f668, type: 3}
+    gunIcon: {fileID: 21300000, guid: f323f8601e8ac5c4ab7d26e9ac1d6093, type: 2}
+    unlockWithAds: 0
+  - gunName: 
+    gunPref: {fileID: 1131144905416332, guid: c48bb84a8502c2140975c9012890b36c, type: 3}
+    gunIcon: {fileID: 21300000, guid: e0b10b2184271a54bb561c649bcabd06, type: 2}
+    unlockWithAds: 0
+  - gunName: 
+    gunPref: {fileID: 1753471310913832, guid: d9c231a3250fd344cacc3a7bbdd7cf85, type: 3}
+    gunIcon: {fileID: 21300000, guid: 6fdfd3874a12cf342abdb3045a31505f, type: 2}
+    unlockWithAds: 0
+  specialGuns:
+  - gunName: STAUROS BURN
+    gunPref: {fileID: 1661549702448619, guid: d46391e55aa42c74d9e13762190512b8, type: 3}
+    gunIcon: {fileID: 21300000, guid: c03fe2c5ad8e32f4ab3b50def1e735bf, type: 2}
+    unlockWithAds: 0
+  - gunName: F2000
+    gunPref: {fileID: 1548103828298994, guid: 168fd6efa289eca47a1763f28e697a31, type: 3}
+    gunIcon: {fileID: 21300000, guid: dcc1ad298fa08ac41bd1ce93a801083d, type: 2}
+    unlockWithAds: 0
+  - gunName: M249
+    gunPref: {fileID: 1809917529540554, guid: b39cb0b8a927ac349813c22ae5861ada, type: 3}
+    gunIcon: {fileID: 21300000, guid: 86fe4495de873664386ca71af0f36217, type: 2}
+    unlockWithAds: 0
+  - gunName: M32
+    gunPref: {fileID: 1802969431045609, guid: 943e025aba45c7d4a8ed00c9b62c60ef, type: 3}
+    gunIcon: {fileID: 21300000, guid: 712a14d2bb008b44899ef958b21dd1e0, type: 2}
+    unlockWithAds: 1
+  - gunName: SWACR
+    gunPref: {fileID: 1284282089930620, guid: 297bf9be8f4035c4c879c78ccb1cc3d0, type: 3}
+    gunIcon: {fileID: 21300000, guid: 548bfe6f05a3e31498859c444d0feb8e, type: 2}
+    unlockWithAds: 0
+  - gunName: SG553
+    gunPref: {fileID: 1710851319895672, guid: e210c785482774c41ab4ea1f6835a9fd, type: 3}
+    gunIcon: {fileID: 21300000, guid: b8db39c7ac5140743882a55b83d51aea, type: 2}
+    unlockWithAds: 0
+  - gunName: CHAOS SPACE
+    gunPref: {fileID: 1210001088226303, guid: dfd68ae25d6ec6e41b675f4550793255, type: 3}
+    gunIcon: {fileID: 21300000, guid: b67c57ec3dbe65d4380ba6c8f6743dee, type: 2}
+    unlockWithAds: 1
+  - gunName: COLT
+    gunPref: {fileID: 1179303750731019, guid: 7c0eac533fb688e41a5d43f0602647aa, type: 3}
+    gunIcon: {fileID: 21300000, guid: 4ed8d555d05aa1546886feef5b84b757, type: 2}
+    unlockWithAds: 0
+  - gunName: AK47
+    gunPref: {fileID: 1096386878732956, guid: 5ed62d47347621f4db359f82e0c3931c, type: 3}
+    gunIcon: {fileID: 21300000, guid: b5f6bb3796c489044bc229e22c120b9c, type: 2}
+    unlockWithAds: 0
+  - gunName: ARC CANON
+    gunPref: {fileID: 1597908849078922, guid: 22250d4c019d9844fbbe478c8b240104, type: 3}
+    gunIcon: {fileID: 21300000, guid: 2a79b9f95325a3e43955319ee9a7e90d, type: 2}
+    unlockWithAds: 1
