@@ -3,7 +3,44 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Bullet
+  - Particle
+  - Enemy
+  - t_petroling
+  - t_hiding
+  - ads_obj
+  - ana_object
+  - spawnPos
+  - heliDest
+  - heliOrigin
+  - air_strikePOS
+  - tankOrigin
+  - deadEnd
+  - playerPOS
+  - N_petroling
+  - Admob
+  - ExplosiveObstacles
+  - IntroEnd
+  - MP5KA4
+  - MachineGun
+  - WeaponManager
+  - LookObject
+  - Knife
+  - PickUp
+  - Ground
+  - AnimTag
+  - Boat
+  - UIController
+  - Animal
+  - AnimalFriend
+  - soldier
+  - View
+  - View_FPS
+  - SpawnPoint
+  - FPSCamNew
+  - MachineGunPlayer
+  - Fire
   layers:
   - Default
   - TransparentFX
@@ -13,15 +50,15 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Bullet
+  - Player
+  - PlayerArrow
+  - Trees
+  - Enemies
+  - FPS
+  - TPS
+  - skybox
+  - GroundLayerTest
   - 
   - 
   - 
@@ -38,6 +75,6 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
+  - name: "Default"
     uniqueID: 0
     locked: 0

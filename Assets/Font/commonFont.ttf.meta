@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: bc64646642ed4d36a1a132e5fe316988
+timeCreated: 1572014487
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: "commonFont"
+  fontNames:
+  - Alien Encounters Solid
+  fallbackFontReferences: []
+  customCharacters:
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData:
+  assetBundleName: 
+  assetBundleVariant: 

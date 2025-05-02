@@ -5,11 +5,11 @@ NavMeshProjectSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   areas:
-  - name: Walkable
+  - name: "Walkable"
     cost: 1
-  - name: Not Walkable
+  - name: "Not Walkable"
     cost: 1
-  - name: Jump
+  - name: "Jump"
     cost: 2
   - name: 
     cost: 1

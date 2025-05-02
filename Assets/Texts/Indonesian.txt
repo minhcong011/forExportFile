@@ -1,0 +1,185 @@
+
+// Main Menu Detail
+MoreGamesText= Lebih banyak permainan
+SettingsText = pengaturan
+MoreFunText = Lebih menyenangkan
+RateUsText = tingkat Kami!!!
+PlayText = Bermain
+ScoreText = Skor
+ExitText = Keluar
+BackText =Kembali
+QuestText = Pencarian
+FreeSpinText = Putaran gratis
+ShopText = Toko
+FreeCashText = Cash gratis
+FreeGoldText = Emas Gratis
+PrimaryWeaponText = Senjata utama
+MissionText = Misi
+NextText =Berikutnya
+BuyText=Membeli
+MissionSelectionText = misi Seleksi
+LevelSelectionText= Seleksi tingkat
+
+
+// Extra Button
+
+HomeText=Rumah
+ResumeText=Lanjut
+ReplayText=Ulangan
+ShareText=Bagikan
+HotGamesText=enak pertandingan
+LoadingText=Pemuatan
+StartRecordingText=Mulai merekam
+StopText=Berhenti
+ShowRecordingText=Tampilkan Recording
+
+
+//Other Button Text
+
+LevelClearText= tingkat Batal
+PauseText=Berhenti sebentar
+LevelCompleteText=tingkat Lengkap
+LevelFailText=tingkat Gagal
+MissionFailText= misi Gagal
+MissionCompleteText=Misi terselesaikan
+GameOverText= Permainan telah berakhir
+SpinTheWheelText=Putar rodanya
+	//LEVEL SELECTION DETAIL TEXT
+
+	ObjectiveText =TUJUAN!!!
+	LevelText= Tingkat
+	
+
+
+
+
+
+  //Quit Panel Text
+
+ QuitText = Berhenti
+ QuitDescriptionText = Apa kamu yakin?
+ NoText = Tidak
+ YesText =iya nih
+
+
+
+// Settings Panel Text
+
+MusicText = Musik
+SoundText = Suara
+SensitivityText = Kepekaan
+
+
+//Quest Text
+
+AchievementText = Prestasi
+DailyTaskText = Tugas sehari hari
+	//Achievement
+	EnemyTargetsText = musuh Sasaran
+	
+
+	CompleteLevelText= lengkap Tingkat
+	
+
+	EnemiesText = Lawan
+	
+
+	DailyBonusText = Bonus Harian
+	
+	TimeText = Waktu
+	
+
+	ClearLevelText = jelas Tingkat
+	
+
+	ClearMissionText = jelas Misi
+	
+
+
+	 EnemyTargetsText = Target musuh
+
+
+
+//free spin text
+
+SpinText = Berputar
+
+FreeText = Bebas
+
+
+
+//shops detail text
+
+GunText = Senjata
+MedicalKitsText = kit medis
+ShieldText = MELINDUNGI
+GoldText = EMAS
+CashText = Kas
+
+	//gun detail text
+
+	PistolText = Pistol
+	RifleText=Senapan
+	ShotGunText = senapan berburu
+	RPGText = RPG
+	SniperText = Cecchino
+	GrenadeLauncherText = peluncur granat
+
+	//GUNS PROPERTIES TEXT
+		ClipSizeText= Ukuran klip
+		DamageText = Kerusakan
+		ReloadTimeText = Waktu mengisi ulang
+		FireRateText= api Tingkat
+
+	//Medical kits
+
+	PacksText = paket
+
+	//shield detail text
+
+	HealthText = Kesehatan
+
+	//gold detail text
+
+	CountText = Menghitung
+
+MissileText = RUDAL
+AirStrikeText = serangan udara
+EquipText = MELENGKAPI
+EquipedText = Dilengkapi
+CollectText = MENGUMPULKAN
+DayText = HARI
+UpgradeText = Peningkatan
+LoadingText = PEMUATAN
+TapToContinueText = Tap Untuk Lanjutkan
+PausedText = berhenti!!!
+WatchVideoText = Menonton video
+RestartText =Mengulang kembali
+StoreText = Toko
+WatchLevelVideosText = Perhiasan Tingkat Video
+RewardVideoText = Reward Video
+TopGamesText = enak pertandingan
+RemoveAdsText = Hilangkan iklan
+ClaimText = KLAIM
+ClaimedText = DIAJUKAN
+
+OKText = baik
+CancelText = BATAL
+RetryText = coba lagi!!!
+
+
+
+
+
+CongratulationText = Congratulazioni
+SniperXText = Cecchino X
+ContinueText = Continua
+
+
+LevelCompletedText=tingkat Lengkap!!!
+LevelFailedText=tingkat Gagal!!!
+MissionFailedText= misi Gagal!!!
+MissionCompletedText=Misi terselesaikan!!!
+
+ObjectiveDescription2Text = Hapus Dalam Sasaran Waktu
+ObjectiveDescription3Text = Lebih dari 50 % Kesehatan

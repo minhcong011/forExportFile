@@ -1,0 +1,179 @@
+
+// Main Menu Detail
+MoreGamesText=Meer spellen
+SettingsText =instellingen
+MoreFunText = Leuker
+RateUsText = Beoordeel ons!!!
+PlayText = Spelen
+ScoreText = partituur
+ExitText = afrit
+BackText = Terug
+QuestText = Zoektocht
+FreeSpinText = Gratis rondje
+ShopText = Winkel
+FreeCashText = Vrije kasstroom
+FreeGoldText = gratis goud
+PrimaryWeaponText = primair wapen
+MissionText = Missie
+NextText = volgende
+BuyText=Kopen
+MissionSelectionText = mission selectie
+LevelSelectionText= NIVEAU SELECTIE
+
+// Extra Button
+
+HomeText=Huis
+ResumeText=Hervat
+ReplayText=Herhaling
+ShareText=Delen
+HotGamesText=hete Spelen
+LoadingText=het laden
+StartRecordingText=Begin met opnemen
+StopText=Stop
+ShowRecordingText=Toon opname
+
+
+
+//Other Button Text
+
+LevelClearText= Clear niveau
+PauseText=Pauze
+LevelCompleteText=Level voltooid
+LevelFailText=level mislukken
+MissionFailText= missie mislukt
+MissionCompleteText=missie compleet
+GameOverText= Spel is over
+SpinTheWheelText=Draai het wiel
+	//LEVEL SELECTION DETAIL TEXT
+
+	ObjectiveText = DOELSTELLING!!!
+	LevelText= Niveau
+	
+
+
+
+
+
+  //Quit Panel Text
+
+ QuitText = ophouden
+ QuitDescriptionText = Weet je het zeker?
+ NoText = Nee
+ YesText = Ja 
+
+
+// Settings Panel Text
+
+MusicText = Muziek
+SoundText = Geluid
+SensitivityText = Gevoeligheid
+
+
+//Quest Text
+
+AchievementText = prestatie
+DailyTaskText = Dagelijkse taak
+	//Achievement
+	EnemyTargetsText = Enemy Target
+
+	CompleteLevelText= Compleet Level
+
+	EnemiesText = vijanden
+	
+
+	DailyBonusText = Dagelijkse bonus
+
+	TimeText = Tijd
+
+
+	ClearLevelText = clear niveau
+	
+
+	ClearMissionText = duidelijke missie
+	
+
+	 EnemyTargetsText = vijandelijke doelen
+	
+
+
+//free spin text
+
+SpinText = spinnen
+FreeText = Gratis
+
+
+
+//shops detail text
+
+GunText = geweer
+MedicalKitsText = medische kits
+ShieldText = SCHILD
+GoldText = GOUD
+CashText = geld
+
+	//gun detail text
+
+	PistolText = Pistool
+	RifleText= Geweer
+	ShotGunText = Jachtgeweer
+	RPGText = RPG
+	SniperText = scherpschutter
+	GrenadeLauncherText = granaatlanceerder
+
+	//GUNS PROPERTIES TEXT
+		ClipSizeText= clip grootte
+		DamageText = Schade
+		ReloadTimeText = Herlaad tijd
+		FireRateText= brand tarief
+
+	//Medical kits
+
+	PacksText = paks
+
+	//shield detail text
+
+	HealthText = Gezondheid
+
+	//gold detail text
+
+	CountText = tellen
+
+MissileText = RAKETTEN
+AirStrikeText = luchtaanval
+EquipText = uitrusten
+EquipedText = UITGERUST
+CollectText = VERZAMEL
+DayText = DAG
+UpgradeText = Upgrade
+LoadingText = LADEN
+TapToContinueText = Tik op om door te gaan
+PausedText = gepauzeerd!!!
+WatchVideoText = Bekijk de video
+RestartText = Herstarten
+StoreText = Winkel
+WatchLevelVideosText = Kijk Level Videos
+RewardVideoText = Beloning Video
+TopGamesText = TOP SPELLEN
+RemoveAdsText = Verwijder advertenties
+ClaimText = vordering
+ClaimedText = beweerde
+OKText = OK
+CancelText = Annuleren
+RetryText = RETRY!!!
+
+
+
+
+
+CongratulationText = Gelukwens
+SniperXText = scherpschutter X
+ContinueText = Doorgaan
+
+
+LevelCompletedText=Level voltooid!!!
+LevelFailedText=level mislukken!!!
+MissionFailedText= missie mislukt!!!
+MissionCompletedText=missie compleet!!!
+
+ObjectiveDescription2Text = duidelijk streeftijd
+ObjectiveDescription3Text = Meer dan 50% Gezondheid

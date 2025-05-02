@@ -1,0 +1,178 @@
+
+// Main Menu Detail.................................
+MoreGamesText=MORE GAMES
+MoreFunText = MORE FUN
+TopGamesText=TOP GAMES
+HotGamesText=HOT GAMES
+
+SettingsText =SETTINGS
+RateUsText = RATE US
+PlayText = PLAY
+ScoreText = SCORE
+ExitText = EXIT
+BackText = BACK
+QuestText = QUEST
+ShopText = SHOP
+
+FreeCashText = FREE CASH
+FreeGoldText = FREE GOLD
+PrimaryWeaponText = PRIMARY WEAPON
+MissionText = MISSION
+NextText = NEXT
+BuyText=BUY
+PauseText=PAUSE
+HomeText=HOME
+ResumeText=RESUME
+ReplayText=REPLAY
+ShareText=SHARE
+
+LoadingText=LOADING
+
+
+//Quit Panel Text................................................
+
+ QuitText = QUIT
+ QuitDescriptionText = Are You Sure?
+ NoText = NO
+ YesText = YES  
+
+
+// Settings Panel Text.............................
+
+MusicText = MUSIC
+SoundText = SOUND
+SensitivityText = SENSITIVITY
+
+
+//SpinThewheel.................................
+
+SpinTheWheelText=SPIN THE WHEEL
+FreeSpinText = FREE SPIN
+SpinText = SPIN
+FreeText = FREE
+
+
+
+//Level and Mission...............................
+MissionSelectionText = MISSION SELECTION
+LevelSelectionText= LEVEL SELECTION
+
+
+LevelCompletedText=LEVEL COMPLETED!!!
+LevelFailedText=LEVEL FAILED!!!
+MissionFailedText= MISSION FAILED!!!
+MissionCompletedText=MISSION COMPLETED!!!
+
+LevelClearText= LEVEL CLEAR !!!
+LevelCompleteText=LEVEL COMPLETE
+LevelFailText=LEVEL FAIL!!!
+MissionFailText= MISSION FAIL!!!
+MissionCompleteText=MISSION COMPLETE!!!
+
+PausedText=PAUSED!!!
+OKText=OK
+CancelText=CANCEL
+RetryText=RETRY!!!
+CongratulationText=CONGRATULATION
+ContinueText=CONTINUE
+GameOverText= GAME OVER
+
+
+
+	//LEVEL SELECTION DETAIL TEXT...............
+
+	ObjectiveText = OBJECTIVES!!!
+	LevelText= LEVEL
+
+//LEVEL PLAY...............
+	
+	TapToContinueText=Tap To Continue
+	RemoveAdsText=Remove Ads
+
+// Videos.................................
+
+
+StartRecordingText=Start Recording
+StopText=STOP
+ShowRecordingText=Show Recording
+WatchVideoText=Watch Video
+RestartText=RESTART
+StoreText=STORE
+WatchLevelVideosText=Watch Level Videos
+RewardVideoText=Reward Video
+
+
+
+//Quest Text........................
+
+AchievementText = ACHIEVEMENTS
+DailyTaskText = DAILY TASKS
+	//Achievement
+	EnemyTargetsText = Enemy Target
+	EnemiesText = Enemies
+	DailyBonusText = DAILY BONUS
+	TimeText = Time
+	ClearLevelText = Clear Level
+	ClearMissionText = Clear Mission
+	EnemyTargetsText = Enemy Targets
+	CompleteLevelText= COMPLETE LEVEL
+
+
+//shops detail text...................................
+
+GunText = GUN
+MedicalKitsText = MEDICAL PACK
+ShieldText=SHIELD
+GoldText = GOLD
+CashText = CASH
+
+	//WEAPON detail text.............................
+
+	SniperXText=Sniper X
+	PistolText = Pistol
+	RifleText= Rifle
+	ShotGunText = ShotGun
+	RPGText = RPG
+	SniperText = Sniper
+	GrenadeLauncherText = GRENADE LAUNCHER
+	MissileText=MISSILES
+	AirStrikeText=AIR STRIKE
+
+	//GUNS PROPERTIES TEXT...............
+		ClipSizeText= Clip Size
+		DamageText = Damage
+		ReloadTimeText = Reload Time
+		FireRateText= Fire Rate
+
+	//Medical kits
+
+	PacksText = PACKS
+
+	//shield detail text.................
+	EquipText=EQUIP
+	EquipedText=EQUIPPED
+	CollectText=COLLECT
+	DayText=DAY
+	UpgradeText=Upgrade
+	HealthText = HEALTH
+
+	ClaimText=CLAIM
+	ClaimedText=CLAIMED
+
+	//gold detail text
+
+	CountText = COUNT
+
+
+ObjectiveDescription2Text= TARGET TIME
+ObjectiveDescription3Text= OVER 50% HEALTH
+
+
+
+
+
+
+
+
+
+

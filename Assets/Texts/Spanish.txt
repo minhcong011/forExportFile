@@ -1,0 +1,183 @@
+
+// Main Menu Detail
+MoreGamesText=Más juegos
+SettingsText =ajustes
+MoreFunText = Más diversión
+RateUsText = nosotros tasa!!!
+PlayText = Jugar
+ScoreText = Puntuación
+ExitText = Salida
+BackText = Espalda
+QuestText = Búsqueda
+FreeSpinText = Vuelta gratis
+ShopText = tienda
+FreeCashText = Dinero gratis
+FreeGoldText = Oro gratis
+PrimaryWeaponText = Primary Weapon
+MissionText = Misión
+NextText = Siguiente
+BuyText=Comprar
+MissionSelectionText = de selección de misión
+LevelSelectionText= SELECCIÓN DE NIVEL
+
+
+// Extra Button
+
+HomeText=Casa
+ResumeText=Currículum
+ReplayText=repetición
+ShareText=Compartir
+HotGamesText=Juegos calientes
+LoadingText=Cargando
+StartRecordingText=Empezar a grabar
+StopText=Detener
+ShowRecordingText=Mostrar grabación
+
+
+//Other Button Text
+
+LevelClearText= Claro nivel
+PauseText=Pausa
+LevelCompleteText=Nivel completado
+LevelFailText=nivel Falla
+MissionFailText= Misión fallida
+MissionCompleteText=Misión cumplida
+GameOverText= Juego terminado
+SpinTheWheelText=Gira la rueda
+
+	//LEVEL SELECTION DETAIL TEXT
+
+	ObjectiveText = OBJETIVO!!!
+	LevelText= Nivel
+	
+
+
+
+
+
+  //Quit Panel Text
+
+ QuitText = Dejar
+ QuitDescriptionText = ¿Estás seguro?
+ NoText = No
+ YesText = Sí 
+
+
+// Settings Panel Text
+
+MusicText = Música
+SoundText = Sonar
+SensitivityText = Sensibilidad
+
+
+//Quest Text
+
+AchievementText = Logro
+DailyTaskText = Tareas diarias
+	//Achievement
+	EnemyTargetsText = enemigo de destino
+	
+
+	CompleteLevelText= completa el nivel
+
+
+	EnemiesText = Enemigos
+	
+
+	DailyBonusText = Bonus diario
+	
+
+	TimeText = Hora
+	
+
+	ClearLevelText = claro Nivel
+
+
+	ClearMissionText = Misión clara
+
+
+	 //Daily task
+
+
+	 EnemyTargetsText = objetivos enemigos
+	
+
+
+//free spin text
+
+SpinText = Girar
+FreeText = Gratis
+
+
+
+//shops detail text
+
+GunText = Pistola
+MedicalKitsText = Juegos médicos
+ShieldText = PROTEGER
+GoldText = ORO
+CashText = Efectivo
+
+	//gun detail text
+
+	PistolText = Pistola
+	RifleText= Rifle
+	ShotGunText = Escopeta
+	RPGText = RPG
+	SniperText = Francotirador
+	GrenadeLauncherText = Lanzagranadas
+
+	//GUNS PROPERTIES TEXT
+		ClipSizeText= clip de Tamaño
+		DamageText = Dañar
+		ReloadTimeText = Tiempo de recarga
+		FireRateText= Velocidad de fuego
+
+	//Medical kits
+
+	PacksText = paquetes
+
+	//shield detail text
+
+	HealthText = Salud
+
+	//gold detail text
+
+	CountText = Contar
+
+
+MissileText = misil
+AirStrikeText = ataque aéreo
+EquipText = EQUIPAR
+EquipedText = EQUIPADO
+CollectText = recopilar
+DayText = DÍA
+UpgradeText = mejorar
+LoadingText = CARGA
+TapToContinueText = Pulse para continuar
+PausedText = PASUED!!!
+WatchVideoText = Ver Video
+RestartText = Reiniciar
+StoreText = tienda
+WatchLevelVideosText = ver vídeos de nivel
+RewardVideoText = Recompensa vídeo
+TopGamesText = LOS MEJORES JUEGOS
+RemoveAdsText = Quitar anuncios
+ClaimText = RECLAMO
+ClaimedText = RECLAMADO
+OKText = DE ACUERDO
+CancelText = Cancelar
+RetryText = Reintentar!!!
+
+
+CongratulationText = ENHORABUENA
+SniperXText = X francotirador
+ContinueText = Continuar
+
+LevelCompletedText=Nivel completado!!!
+LevelFailedText=nivel Falla!!!
+MissionFailedText= Misión fallida!!!
+MissionCompletedText=Misión cumplida!!!
+
+ObjectiveDescription2Text = Borrar En Tiempo objetivo
+ObjectiveDescription3Text = Más del 50 % de la Salud

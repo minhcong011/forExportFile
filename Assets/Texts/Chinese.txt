@@ -1,0 +1,189 @@
+// Main Menu Detail
+
+
+SettingsText=设置
+MoreGamesText = 更多游戏
+RateUsText =我们评分!!!
+PlayText= 玩
+ScoreText = 得分了
+ExitText = 出口
+BackText = 背部
+
+
+MoreFunText = 更多乐趣
+QuestText = 寻求
+FreeSpinText = 自由旋转
+ShopText = 店
+FreeCashText = 自由现金流
+FreeGoldText = 免费黄金
+PrimaryWeaponText = 主武器
+MissionText = 任务
+NextText = 下一个
+BuyText= 购买
+MissionSelectionText = 选择任务
+LevelSelectionText= 级别选择
+
+
+// Extra Button
+
+HomeText=家
+ResumeText=恢复
+ReplayText=重播
+ShareText=分享
+HotGamesText=热门游戏
+LoadingText=加载
+StartRecordingText=开始录制
+StopText=停止
+ShowRecordingText=节目录制
+
+
+//Other Button Text
+
+LevelClearText= 层次清晰
+PauseText=暂停
+LevelCompleteText=完全级
+LevelFailText=等级不合格
+MissionFailText= 不辱使命
+MissionCompleteText=任务完成
+GameOverText= 游戏结束
+SpinTheWheelText=旋转的车轮
+
+	//LEVEL SELECTION DETAIL TEXT
+
+	ObjectiveText = 目的!!!
+	LevelText= 水平
+
+
+
+
+
+
+  //Quit Panel Text
+
+ QuitText = 放弃
+ QuitDescriptionText = 你确定？
+ NoText = 没有
+ YesText = 是  
+
+
+// Settings Panel Text
+
+MusicText = 音乐
+SoundText = 声音
+SensitivityText = 灵敏度
+
+
+//Quest Text
+
+AchievementText = 成就
+DailyTaskText = 每日任务
+	//Achievement
+	EnemyTargetsText = 敌方目标
+
+
+	CompleteLevelText= 完成等级
+
+
+	EnemiesText = 敌人
+	
+
+	DailyBonusText = 每日奖金
+
+
+	TimeText = 时间
+
+
+	ClearLevelText = 清除级别
+	
+
+	ClearMissionText = 清除任务
+	
+
+	 //Daily task
+	
+
+	 EnemyTargetsText = 敌方目标
+	 
+
+
+//free spin text
+
+SpinText = 纺
+FreeText = 自由
+
+
+
+//shops detail text
+
+GunText = 枪
+MedicalKitsText = 医疗包
+ShieldText = 屏蔽
+GoldText = 金
+CashText = 现金
+
+	//gun detail text
+
+	PistolText = 手枪
+	RifleText= 步枪
+	ShotGunText = 滑膛枪
+	RPGText = RPG
+	SniperText = 狙击兵
+	GrenadeLauncherText =榴弹发射器
+
+	//GUNS PROPERTIES TEXT
+		ClipSizeText= 夹大小
+		DamageText = 损伤
+		ReloadTimeText = 刷新时间
+		FireRateText= 射速
+
+	//Medical kits
+
+	PacksText = 包
+
+	//shield detail text
+
+	HealthText = 健康
+
+	//gold detail text
+
+	CountText = 计数
+
+
+MissileText =弹箭
+AirStrikeText =空袭
+EquipText = 装备
+EquipedText =配备
+CollectText =到付
+DayText = 天
+UpgradeText =升级
+LoadingText = 装载
+TapToContinueText =轻按以继续
+PausedText = 暂停!!!
+WatchVideoText =观看视频
+RestartText =重新启动
+StoreText =商店
+WatchLevelVideosText =观看级别影片
+RewardVideoText =奖赏视频
+TopGamesText =热门游戏
+RemoveAdsText =删除广告
+ClaimText =索赔
+ClaimedText =声称
+
+OKText = 好
+CancelText =取消
+RetryText =重试!!!
+
+CongratulationText =祝贺
+SniperXText =狙击点¯x
+ContinueText =继续
+
+
+
+LevelCompletedText=完全级!!!
+LevelFailedText=等级不合格!!!
+MissionFailedText= 不辱使命!!!
+MissionCompletedText=任务完成!!!
+
+
+ObjectiveDescription2Text =清除在目标时间
+ObjectiveDescription3Text =超过50％的健康

@@ -1,0 +1,179 @@
+
+// Main Menu Detail
+MoreGamesText=他のゲーム
+SettingsText =設定
+MoreFunText = もっと楽しく
+RateUsText = 私たちを評価してください!!!
+
+PlayText = 遊びます
+ScoreText = スコア
+ExitText = 出口
+BackText = バック
+QuestText = クエスト
+FreeSpinText = フリースピン
+ShopText = ショップ
+FreeCashText = フリーキャッシュ
+FreeGoldText = 無料ゴールド
+PrimaryWeaponText = 主要武器
+MissionText = ミッション
+NextText = 次
+BuyText=購入
+MissionSelectionText = ミッションの選択
+LevelSelectionText= レベル選択
+
+
+
+// Extra Button
+
+HomeText=ホーム
+ResumeText=履歴書
+ReplayText=リプレイ
+ShareText=シェア
+HotGamesText=人気ゲーム
+LoadingText=ローディング
+StartRecordingText=録画開始
+StopText=やめる
+ShowRecordingText=表示記録
+
+//Other Button Text
+
+LevelClearText= レベルをクリア
+PauseText=ポーズ
+LevelCompleteText=完全なレベル
+LevelFailText=レベル失敗
+MissionFailText= ミッション失敗
+MissionCompleteText=作戦完了
+GameOverText= ゲームオーバー
+SpinTheWheelText=車輪を回転させます
+
+	//LEVEL SELECTION DETAIL TEXT
+
+	ObjectiveText = 目的!!!
+	LevelText= レベル
+
+
+
+
+
+  //Quit Panel Text
+
+ QuitText = やめます
+ QuitDescriptionText = 本気ですか？
+ NoText = いいえ
+ YesText = はい 
+
+
+// Settings Panel Text
+
+MusicText = 音楽
+SoundText = 音
+SensitivityText = 感度
+
+
+//Quest Text
+
+AchievementText = 成果
+DailyTaskText = 毎日の仕事
+	//Achievement
+	EnemyTargetsText = 敵のターゲット
+
+
+	CompleteLevelText= 完全なレベル
+
+
+	EnemiesText = 敵
+
+
+	DailyBonusText = デイリーボーナス
+	
+	TimeText = 時間
+
+	ClearLevelText = クリアレベル
+	
+	ClearMissionText = クリアミッション
+
+
+	 //Daily task
+
+
+	 EnemyTargetsText = 敵のターゲット
+
+
+
+//free spin text
+
+SpinText = スピン
+FreeText = フリー
+
+
+//shops detail text
+
+GunText = 銃
+MedicalKitsText = 医療キット
+ShieldText = シールド
+GoldText = ゴールド
+CashText = 現金
+
+	//gun detail text
+
+	PistolText = ピストル
+	RifleText= ライフル
+	ShotGunText = 散弾銃
+	RPGText = RPG
+	SniperText = 狙撃兵
+	GrenadeLauncherText = グレネードランチャー
+
+	//GUNS PROPERTIES TEXT
+		ClipSizeText= クリップサイズ
+		DamageText = 損傷
+		ReloadTimeText = リロード時間
+		FireRateText= ファイアレート
+
+	//Medical kits
+
+	PacksText = パック
+
+	//shield detail text
+
+	HealthText = 健康
+
+	//gold detail text
+
+	CountText = カウント
+
+
+MissileText =ミサイル
+AirStrikeText =空爆
+EquipText = 装備します
+EquipedText =装備
+CollectText=収集します
+DayText = 日
+UpgradeText =アップグレード
+LoadingText = ローディング
+TapToContinueText =タップして続行するには
+PausedText = 一時停止!!!
+WatchVideoText =ビデオを見ます
+RestartText =を再起動します
+StoreText =ストア
+WatchLevelVideosText =ウォッチレベルのビデオ
+RewardVideoText =報酬ビデオ
+TopGamesText = トップゲーム
+RemoveAdsText =広告を削除
+ClaimText = 請求
+ClaimedText = 主張
+OKText = [OK]
+CancelText =キャンセル
+RetryText =リトライ!!!
+
+CongratulationText =おめでとう
+SniperXText =スナイパーX
+ContinueText =続行
+
+
+LevelCompletedText=完全なレベル!!!
+LevelFailedText=レベル失敗!!!
+MissionFailedText= ミッション失敗!!!
+MissionCompletedText=作戦完了!!!
+
+ObjectiveDescription2Text =クリアでターゲットタイム
+ObjectiveDescription3Text =以上50％健康
