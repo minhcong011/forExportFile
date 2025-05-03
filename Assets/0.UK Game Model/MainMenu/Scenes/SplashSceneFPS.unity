@@ -132,8 +132,8 @@ LightingSettings:
   m_PrefabAsset: {fileID: 0}
   m_Name: Settings.lighting
   serializedVersion: 6
-  m_GIWorkflowMode: 0
-  m_EnableBakedLightmaps: 1
+  m_GIWorkflowMode: 1
+  m_EnableBakedLightmaps: 0
   m_EnableRealtimeLightmaps: 1
   m_RealtimeEnvironmentLighting: 1
   m_BounceScale: 1
@@ -4424,7 +4424,7 @@ MonoBehaviour:
   bannerId: ca-app-pub-2787841785988179/9426421152
   interId: ca-app-pub-2787841785988179/2184437955
   rewardedId: ca-app-pub-2787841785988179/3716527969
-  openAppId: ca-app-pub-2787841785988179/6127704629
+  openAppId: ca-app-pub-3940256099942544/9257395921
 --- !u!114 &1789997302958377911
 MonoBehaviour:
   m_ObjectHideFlags: 0

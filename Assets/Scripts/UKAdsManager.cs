@@ -26,7 +26,7 @@ public class UKAdsManager : MonoBehaviour
     [SerializeField] string bannerId = "ca-app-pub-2787841785988179/9426421152";
     [SerializeField] string interId = "ca-app-pub-2787841785988179/2184437955";
     [SerializeField] string rewardedId = "ca-app-pub-2787841785988179/3716527969";
-    [SerializeField] string openAppId = "ca-app-pub-2787841785988179/6127704629";
+    [SerializeField] string openAppId = "ca-app-pub-3940256099942544/9257395921";
     BannerView bannerView;
     InterstitialAd interstitialAd;
     RewardedAd rewardedAd;
@@ -47,7 +47,7 @@ public class UKAdsManager : MonoBehaviour
     }
     private void OnApplicationPause(bool pause)
     {
-        StartCoroutine(ShowAppOpenAd());
+        ShowAppOpenAd();
     }
 
     private void Start()
@@ -99,10 +99,13 @@ public class UKAdsManager : MonoBehaviour
             RegisterEventHandlers(ad);
             appOpenAd = ad;
             finishLoadOpenAppAds = true;
+#if UNITY_EDITOR
+            return;
+#endif
             if (!showOpenGame)
             {
-                ShowAppOpenAd();
-                showOpenGame = false;
+                ShowAppOpenAd();  
+                showOpenGame = true;
             }
         });
     }
@@ -152,18 +155,15 @@ public class UKAdsManager : MonoBehaviour
     IEnumerator ShowAppOpenAdWithDelay()
     {
         yield return new WaitForSeconds(0.2f);
-        StartCoroutine(ShowAppOpenAd());
+        ShowAppOpenAd();
     }
 
-    public IEnumerator ShowAppOpenAd()
+    public void ShowAppOpenAd()
     {
-        //    if (appOpenAd != null && appOpenAd.CanShowAd())
-        //    {
-        //        Screen.orientation = ScreenOrientation.LandscapeLeft;
-        //        appOpenAd.Show();
-        //        yield return new WaitForSeconds(0.5f);
-        //    }
-        yield return null;
+        if (appOpenAd != null && appOpenAd.CanShowAd())
+        {
+            appOpenAd.Show();
+        }
     }
     #endregion
     #region Interstitial
