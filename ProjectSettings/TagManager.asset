@@ -4,43 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Bullet
-  - Particle
-  - Enemy
-  - t_petroling
-  - t_hiding
-  - ads_obj
-  - ana_object
-  - spawnPos
-  - heliDest
-  - heliOrigin
-  - air_strikePOS
-  - tankOrigin
-  - deadEnd
-  - playerPOS
-  - N_petroling
-  - Admob
-  - ExplosiveObstacles
-  - IntroEnd
-  - MP5KA4
-  - MachineGun
-  - WeaponManager
-  - LookObject
-  - Knife
   - PickUp
-  - Ground
-  - AnimTag
-  - Boat
-  - UIController
-  - Animal
-  - AnimalFriend
-  - soldier
-  - View
-  - View_FPS
-  - SpawnPoint
-  - FPSCamNew
-  - MachineGunPlayer
-  - Fire
+  - AdsPanel
   layers:
   - Default
   - TransparentFX
@@ -50,15 +15,15 @@ TagManager:
   - UI
   - 
   - 
-  - Bullet
-  - Player
-  - PlayerArrow
-  - Trees
-  - Enemies
-  - FPS
-  - TPS
-  - skybox
-  - GroundLayerTest
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -75,6 +40,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: "Default"
+  - name: Pickups
+    uniqueID: 3402919297
+    locked: 0
+  - name: Background
+    uniqueID: 389218567
+    locked: 0
+  - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 1338097493
     locked: 0
