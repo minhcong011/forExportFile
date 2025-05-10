@@ -4,6 +4,7 @@
     {
 		None = 0,
         NoAds = 1,
-        GetUndo = 2
+        GetUndo = 2,
+        Hint,
     }
 }

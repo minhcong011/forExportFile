@@ -34,6 +34,12 @@ namespace SimpleSolitaire.Controller
         /// <summary>
         /// Call hint animation.
         /// </summary>
+        /// 
+        public static HintManager instance;
+        private void Start()
+        {
+            instance = this;
+        }
         private void Hint(float time = 0.75f, bool isNeedSetCard = false, Card card = null)
         {
             if (Hints.Count > 0 && !IsHintProcess && gameObject.activeInHierarchy)
@@ -68,6 +74,10 @@ namespace SimpleSolitaire.Controller
         /// Called when user press hint button.
         /// </summary>
         public void HintButtonAction()
+        {
+            InterVideoAds.Instance.ShowHintReward();
+        }
+        public void ShowHint()
         {
             Hint(HintTranslateTime, false);
         }

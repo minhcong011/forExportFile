@@ -243,6 +243,12 @@ namespace SimpleSolitaire.Controller
             _lastShowingType = RewardAdsType.GetUndo;
             StartCoroutine(LoadRewardedVideo(_rewardVideoAndroid, _lastShowingType));
         }
+        public void ShowHintReward()
+        {
+            _lastShowingType = RewardAdsType.Hint;
+            StartCoroutine(LoadRewardedVideo(_rewardVideoAndroid, _lastShowingType));
+        }
+
 
         private IEnumerator LoadRewardedVideo(RewardBasedVideoAd ads, RewardAdsType type)
         {
@@ -275,7 +281,6 @@ namespace SimpleSolitaire.Controller
                 OnRewardedUser();
                 yield break;
             }
-
             switch (_lastRewardVideoStatus)
             {
                 case RewardVideoStatus.None:
@@ -284,13 +289,12 @@ namespace SimpleSolitaire.Controller
                         RewardAction.Invoke(RewardAdsState.DID_NOT_LOADED, type);
                     break;
                 case RewardVideoStatus.Loaded:
+                    Debug.Log("ShowRewardAds");
                     ads.OnAdRewarded += HandleRewardBasedVideoRewarded;
                     ads.OnAdClosed += HandleClosedBasedVideoRewarded;
                     ads.Show();
                     break;
             }
-
-
         }
         #endregion
 
@@ -329,6 +333,10 @@ namespace SimpleSolitaire.Controller
                     _rewardVideoAndroid.OnAdClosed -= HandleClosedBasedVideoRewarded;
                     RequestRewardBasedVideo(true);
                     break;
+                case RewardAdsType.Hint:
+                    _rewardVideoAndroid.OnAdClosed -= HandleClosedBasedVideoRewarded;
+                    RequestRewardBasedVideo(true);
+                    break;
             }
 
             if (RewardAction != null)
@@ -362,6 +370,12 @@ namespace SimpleSolitaire.Controller
                     _undoPerformerComponent.UpdateUndoCounts();
                     RequestRewardBasedVideo(true);
                     break;
+                case RewardAdsType.Hint:
+                    {
+                        HintManager.instance.ShowHint();
+                        RequestRewardBasedVideo(true);
+                        break;
+                    }
             }
 
             if (_rewardVideoAndroid != null)
@@ -369,7 +383,9 @@ namespace SimpleSolitaire.Controller
                 _rewardVideoAndroid.OnAdRewarded -= HandleRewardBasedVideoRewarded;
                 _rewardVideoAndroid.OnAdClosed -= HandleClosedBasedVideoRewarded;
             }
+
         }
+
         #endregion
 
         /// <summary>
